@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :trips
+  resources :mountains
   resources :users, only: [:index, :show, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
