@@ -5,7 +5,6 @@ class CreateMountains < ActiveRecord::Migration[7.0]
       t.string :address
       t.string :image
       t.integer :elevation
-      t.boolean :kid_friendly
       t.string :ski_pass
       t.string :blackout_dates
 

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_trips
+  resources :mountain_trips
   resources :comments
   resources :trips
   resources :mountains
