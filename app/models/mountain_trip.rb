@@ -1,4 +1,4 @@
 class MountainTrip < ApplicationRecord
-  belongs_to :trips
-  belongs_to :mountains
+  belongs_to :trip
+  belongs_to :mountain
 end
