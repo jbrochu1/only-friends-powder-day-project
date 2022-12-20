@@ -1,4 +1,4 @@
-export default function TripForm() {
+export default function EditUser() {
     return (
         <>
         <div>

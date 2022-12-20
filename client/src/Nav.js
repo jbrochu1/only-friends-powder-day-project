@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 
 
-export default function Nav ({updateUser}) {
+export default function Nav ({updateUser, currentUser}) {
 
     const navigate = useNavigate()
 
@@ -21,8 +21,11 @@ export default function Nav ({updateUser}) {
 
     return (
         <>
-            {/* <button><Link to='/login'>Log In</Link></button> */}
-            <button onClick={handleLogOut}>Log Out</button>
+            
+              <button onClick={handleLogOut}>Log Out</button>
+              <button><Link to='/trips/new'>Add Trip</Link></button>
+              <button className="btn btn-ghost normal-case text-xl"><Link to='/'>Home</Link></button>
+            
         </>
     )
 } 
