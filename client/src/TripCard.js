@@ -1,7 +1,6 @@
 export default function TripCard({trip}) {
     const {user_id, trip_start, trip_end, mountains, users} = trip
     // const mtnNames = mountains.map(mountain => name={mountain.name})
-    console.log(mountains)
 
     return (
         <div>
