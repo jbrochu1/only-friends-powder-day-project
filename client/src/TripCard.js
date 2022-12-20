@@ -10,7 +10,7 @@ export default function TripCard({trip}) {
             <div>End: {trip_end}</div>
             <div>Location: {mountains.map(mtnInfo => <p>{mtnInfo.name}</p>)}</div>
             <div>People Joining: {users.map(userInfo => <p>{userInfo.first_name}</p>)}</div>
-            <div>Comments: {comments.map(comment => <p>{comment.username}{comment.comment}</p>)}</div>
+            <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div>
         </div>        
     )
 }

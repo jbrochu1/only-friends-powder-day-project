@@ -10769,3 +10769,767 @@ Processing by TripsController#index as */*
 Completed 200 OK in 24ms (Views: 17.3ms | ActiveRecord: 2.3ms | Allocations: 12769)
 
 
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:15 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 55ms (Views: 1.4ms | ActiveRecord: 24.8ms | Allocations: 10637)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:15 -0700
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:15 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 23ms (Views: 1.4ms | ActiveRecord: 4.9ms | Allocations: 10732)
+
+
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.25ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 19.7ms | Allocations: 25356)
+
+
+  
+NoMethodError (undefined method `username' for :user:Symbol
+
+  attributes :id, :comment, :date, :user.username
+                                        ^^^^^^^^^):
+  
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<main>'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:15 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.82ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 9.8ms | Allocations: 12764)
+
+
+  
+NoMethodError (undefined method `username' for :user:Symbol
+
+  attributes :id, :comment, :date, :user.username
+                                        ^^^^^^^^^):
+  
+app/serializers/comment_serializer.rb:2:in `<class:CommentSerializer>'
+app/serializers/comment_serializer.rb:1:in `<main>'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:29 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 20ms (Views: 1.4ms | ActiveRecord: 6.7ms | Allocations: 10735)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:30 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.4ms | Allocations: 1974)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:30 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.6ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (1.2ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.6ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (22.05ms)
+Completed 200 OK in 29ms (Views: 21.3ms | ActiveRecord: 4.4ms | Allocations: 28321)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:30 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (1.0ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (1.0ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.95ms)
+Completed 200 OK in 75ms (Views: 35.2ms | ActiveRecord: 20.4ms | Allocations: 38942)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:52 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 2.9ms | Allocations: 8048)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:52 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 1981)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:53 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.39ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 10.6ms | Allocations: 17052)
+
+
+  
+SyntaxError (/Users/jasonbrochu/Development/code/phase-5/project/only-friends-powder-day-project/app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+...id, :comment, :date, :user only:[username]
+...                           ^~~~
+):
+  
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:53 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.8ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.29ms)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 25.6ms | Allocations: 17005)
+
+
+  
+SyntaxError (/Users/jasonbrochu/Development/code/phase-5/project/only-friends-powder-day-project/app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+...id, :comment, :date, :user only:[username]
+...                           ^~~~
+):
+  
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:58 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 10ms (Views: 1.2ms | ActiveRecord: 3.6ms | Allocations: 8133)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:19:58 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 20ms (Views: 0.9ms | ActiveRecord: 11.0ms | Allocations: 8092)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:59 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.69ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 13.5ms | Allocations: 11428)
+
+
+  
+SyntaxError (/Users/jasonbrochu/Development/code/phase-5/project/only-friends-powder-day-project/app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+...id, :comment, :date, :user only:[:username]
+...                           ^~~~
+):
+  
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:19:59 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.83ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 15.2ms | Allocations: 17043)
+
+
+  
+SyntaxError (/Users/jasonbrochu/Development/code/phase-5/project/only-friends-powder-day-project/app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+...id, :comment, :date, :user only:[:username]
+...                           ^~~~
+):
+  
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:20:07 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+Completed 200 OK in 10ms (Views: 1.1ms | ActiveRecord: 3.1ms | Allocations: 8132)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:20:07 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 9ms (Views: 1.1ms | ActiveRecord: 3.1ms | Allocations: 8027)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:20:07 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.8ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 9.0ms | Allocations: 11487)
+
+
+  
+SyntaxError (/Users/jasonbrochu/Development/code/phase-5/project/only-friends-powder-day-project/app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+...id, :comment, :date, :user only[:username]
+...                           ^~~~
+):
+  
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:20:07 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.48ms)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.6ms | Allocations: 3353)
+
+
+  
+SyntaxError (/Users/jasonbrochu/Development/code/phase-5/project/only-friends-powder-day-project/app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+...id, :comment, :date, :user only[:username]
+...                           ^~~~
+):
+  
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/comment_serializer.rb:2: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:21:50 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.17ms)
+Completed 200 OK in 16ms (Views: 1.4ms | ActiveRecord: 8.1ms | Allocations: 8022)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:21:50 -0700
+Processing by UsersController#show as */*
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:21:50 -0700
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 15ms (Views: 1.0ms | ActiveRecord: 5.7ms | Allocations: 8125)
+
+
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (1.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (1.0ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.2ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (30.21ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 22.4ms | Allocations: 33529)
+
+
+  
+TypeError ({:only=>[:username]} is not a symbol nor a string):
+  
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:21:50 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.4ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.3ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.3ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.29ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 13.6ms | Allocations: 27398)
+
+
+  
+TypeError ({:only=>[:username]} is not a symbol nor a string):
+  
+app/controllers/trips_controller.rb:7:in `index'
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:22:11 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 3.1ms | Allocations: 8080)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:22:11 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:22:11 -0700
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.19ms)
+Completed 200 OK in 18ms (Views: 1.2ms | ActiveRecord: 8.7ms | Allocations: 8814)
+
+
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.4ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.5ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (50.6ms)
+Completed 200 OK in 94ms (Views: 31.4ms | ActiveRecord: 54.8ms | Allocations: 35777)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:22:12 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.2ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.2ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.35ms)
+Completed 200 OK in 47ms (Views: 17.0ms | ActiveRecord: 24.9ms | Allocations: 35756)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:26:40 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 13ms (Views: 1.4ms | ActiveRecord: 4.5ms | Allocations: 8070)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:26:40 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 1974)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:26:41 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (1.0ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.2ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (39.92ms)
+Completed 200 OK in 75ms (Views: 35.4ms | ActiveRecord: 14.9ms | Allocations: 29744)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:26:41 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.5ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.5ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.6ms)
+Completed 200 OK in 28ms (Views: 15.5ms | ActiveRecord: 5.0ms | Allocations: 12765)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:27:02 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 2195)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:27:02 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 15ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 1825)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:27:02 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.3ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.9ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.5ms)
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 3.6ms | Allocations: 12659)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:27:02 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.3ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.4ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.3ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.39ms)
+Completed 200 OK in 39ms (Views: 10.4ms | ActiveRecord: 3.4ms | Allocations: 12768)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:27:07 -0700
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 2180)
+
+
+Started GET "/authorized_user" for 127.0.0.1 at 2022-12-20 09:27:07 -0700
+Processing by UsersController#show as */*
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:27:07 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1812)
+
+
+  [1m[36mTrip Load (2.7ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (2.3ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.1ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.31ms)
+Completed 200 OK in 20ms (Views: 10.2ms | ActiveRecord: 6.8ms | Allocations: 12772)
+
+
+Started GET "/trips" for 127.0.0.1 at 2022-12-20 09:27:07 -0700
+Processing by TripsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `current_user'
+  [1m[36mTrip Load (0.2ms)[0m  [1m[34mSELECT "trips".* FROM "trips"[0m
+  ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.1ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mMountain Load (0.1ms)[0m  [1m[34mSELECT "mountains".* FROM "mountains" INNER JOIN "mountain_trips" ON "mountains"."id" = "mountain_trips"."mountain_id" WHERE "mountain_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "user_trips" ON "users"."id" = "user_trips"."user_id" WHERE "user_trips"."trip_id" = $1[0m  [["trip_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/trips_controller.rb:7:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.94ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 1.1ms | Allocations: 12657)
+
+
