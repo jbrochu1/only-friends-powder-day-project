@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import TripsList from "./TripsList";
 
-export default function Home() {
+export default function Home({currentUser}) {
 
     const [trips, setTrips] = useState([])
     const [errors, setErrors] = useState(false)
@@ -22,7 +22,7 @@ export default function Home() {
     
     return (
         <>
-            <TripsList trips={trips}/>
+            <TripsList trips={trips} currentUser={currentUser}/>
         </>
     )
 }

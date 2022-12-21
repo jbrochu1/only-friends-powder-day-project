@@ -10,10 +10,20 @@ class UserTripsController < ApplicationController
         render json: @user_trip, status: :ok
     end
 
+    def create
+        usertrip = UserTrip.create!(usertrip_params)
+        # UserTrip.create!(user_id: params[:user_id], trip_id: trip.id)
+        render json: usertrip, status: :created
+    end
+
     private
 
     def set_user_trip
         @user_trip = UserTrip.find(params[:id])
+    end
+
+    def usertrip_params
+        params.permit(:user_id, :trip_id)
     end
 
 end
