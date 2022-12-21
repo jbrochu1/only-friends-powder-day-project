@@ -5,6 +5,7 @@ import Home from './Home';
 import Nav from './Nav';
 import Login from './Login';
 import AddTrip from './AddTrip';
+// import EditUser from './EditUser';
 
 
 function App() {
@@ -19,12 +20,12 @@ function App() {
       if(res.ok){
         res.json().then(user => {
           updateUser(user)
-          // fetchProductions()
+          // fetchTrips()
         })
       }
     })
   },[])
-  console.log(currentUser)
+  // console.log(currentUser)
   
     // STATE HANDLER FOR USER V. GUEST
   const updateUser = (user) => setCurrentUser(user)
@@ -45,7 +46,7 @@ function App() {
         <Route path='/' element={<Home updateUser={updateUser} currentUser={currentUser} />} />
         <Route path='/login' element={<Login updateUser={updateUser} />} />
         <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} />} />
-      
+        {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
       </Routes>
     }
     </Router>

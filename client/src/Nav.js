@@ -23,8 +23,10 @@ export default function Nav ({updateUser, currentUser}) {
         <>
             
               <button onClick={handleLogOut}>Log Out</button>
-              <button><Link to='/trips/new'>Add Trip</Link></button>
               <button className="btn btn-ghost normal-case text-xl"><Link to='/'>Home</Link></button>
+              <button><Link to='/trips/new'>Add Trip</Link></button>
+              <button><Link to='/users/:id'>Edit Profile</Link></button>
+              
             
         </>
     )

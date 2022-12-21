@@ -9,17 +9,19 @@ export default function AddTrip({currentUser, updateUser}) {
         trip_end: ''
         // mountain_id: ''
       })
-      const [mtnTripData, setMtnTripData] = useState({
-        trip_id: '',
-        mountain_id: ''
-      })
+      const [mtnTripData, setMtnTripData] = useState([
+        // trip_id: '',
+        // mountain_id: ''
+      ])
       const [mountains, setMountains] = useState([])
+      const [tripId, setTripId] = useState([])
       const [errors, setErrors] = useState([])
       const navigate = useNavigate
     
     
       // SETS FORMDATA FOR INPUT ELEMENTS BELOW
       const handleChange = (e) => {
+        e.preventDefault()
         const { name, value } = e.target
         setTripData({ ...tripData, [name]: value })
         setMtnTripData({...mtnTripData, [name]: value })
@@ -34,28 +36,38 @@ export default function AddTrip({currentUser, updateUser}) {
     })
       .then(res => {
         if (res.ok) {
-          res.json();
-          // setTrips?
+          res.json()
+          // .then((newTrip) => { handleNewTrip(newTrip) })
+          // setTripId(res.id)
+          console.log(tripId);
+          // throw "quotes"
+          // setMtnTripData(mtnTripData.mountain_id)
+          // setTripData(tripData)?
         } else {
           //Display errors
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+          console.log("else")
+          // throw "quotes"
         }
       })
-      fetch('/mountain_trips', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...mtnTripData,  })
-        // body: JSON.stringify({ ...formData, mountain_id: mtnId, user_id: currentUser.id })
-      })
-        .then(res => {
-          if (res.ok) {
-            res.json();
-            navigate('/');
-          } else {
-            //Display errors
-            res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-          }
-        })
+      console.log(tripId)
+
+      
+      // fetch('/mountain_trips', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ ...mtnTripData, })
+      //   // body: JSON.stringify({ ...formData, mountain_id: mtnId, user_id: currentUser.id })
+      // })
+      //   .then(res => {
+      //     if (res.ok) {
+      //       res.json();
+      //       navigate('/');
+      //     } else {
+      //       //Display errors
+      //       res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+      //     }
+      //   })
   }
 
       const fetchAuthorizedUser = () => {
@@ -69,7 +81,6 @@ export default function AddTrip({currentUser, updateUser}) {
             }
           })
       }
-    
     
 
     return (

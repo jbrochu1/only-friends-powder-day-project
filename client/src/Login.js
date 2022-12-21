@@ -28,7 +28,7 @@ function Login({ updateUser }) {
             },
             body: JSON.stringify(user)
         })
-            .then(console.log(user))
+            // .then(console.log(user))
             .then((res) => {
                 if (res.ok) {
                     res.json().then(user => {

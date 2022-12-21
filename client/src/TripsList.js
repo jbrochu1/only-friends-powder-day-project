@@ -6,7 +6,7 @@ export default function TripsList({trips}) {
         return <TripCard key={trip.id} trip={trip} />
     })
 
-    console.log(trips)
+    // console.log(trips)
 
     return(
         <>

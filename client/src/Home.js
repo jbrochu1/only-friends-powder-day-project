@@ -18,7 +18,7 @@ export default function Home() {
           })
       }, []);
 
-      console.log(trips)
+      // console.log(trips)
     
     return (
         <>

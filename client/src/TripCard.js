@@ -1,9 +1,9 @@
 export default function TripCard({trip}) {
     const {user_id, trip_start, trip_end, mountains, users, comments} = trip
     // const mtnNames = mountains.map(mountain => name={mountain.name})
-    console.log(comments)
+    // console.log(comments)
     return (
-        <div>
+        <div className="rounded-xl p-8 space-y-4 shadow-lg">
             {/* <div>Mountain Id: {mountain_id}</div> */}
             <div>Creator: {user_id}</div>
             <div>Start: {trip_start}</div>
