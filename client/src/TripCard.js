@@ -3,7 +3,7 @@ export default function TripCard({trip}) {
     // const mtnNames = mountains.map(mountain => name={mountain.name})
     // console.log(comments)
     return (
-        <div className="rounded-xl p-8 space-y-4 shadow-lg">
+        <div className="rounded-xl p-8 space-y-4 shadow-2xl">
             {/* <div>Mountain Id: {mountain_id}</div> */}
             <div>Creator: {user_id}</div>
             <div>Start: {trip_start}</div>
