@@ -47,6 +47,7 @@ function App() {
         <Route path='/login' element={<Login updateUser={updateUser} />} />
         <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} />} />
         {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
+        {/* <Route path='/trips/:id' element={<TripDetails updateUser={updateUser} currentUser={currentUser} deleteTrip={deleteTrip}/>} /> */}
       </Routes>
     }
     </Router>
