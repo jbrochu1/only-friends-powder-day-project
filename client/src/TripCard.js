@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import Comments from "./Comments"
 
 export default function TripCard({trip, currentUser}) {
     const {id, user_id, trip_start, trip_end, mountains, users, comments} = trip
@@ -33,7 +34,8 @@ export default function TripCard({trip, currentUser}) {
             <div>End: {trip_end}</div>
             <div>Location: {mountains.map(mtnInfo => <p>{mtnInfo.name}</p>)}</div>
             <div>People Joining: {users.map(userInfo => <p>{userInfo.first_name}</p>)}</div>
-            <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div>
+            {/* <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div> */}
+            <Comments key={trip.id} trip={trip} currentUser={currentUser} />
             <Link to={`/trips/${id}`}><button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'> See More Details!</button></Link>
             <button onClick={handleJoin}className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>Join Trip</button>
         </div>        

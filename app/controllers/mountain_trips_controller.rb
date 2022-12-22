@@ -11,7 +11,6 @@ class MountainTripsController < ApplicationController
 
     def create
         mtn_trip = MountainTrip.create!(mtn_trip_params)
-        # UserTrip.create!(user_id: params[:user_id], trip_id: trip.id)
         render json: mtn_trip, status: :created
     end
 
