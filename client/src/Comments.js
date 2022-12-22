@@ -36,17 +36,16 @@ export default function Comments({currentUser, trip}) {
 
       })
     }
-    console.log(comments)
     const commentList = comments.map(comment => {
-        return ( <CommentList key={comment.id} comment={comment.comment} currentUser={currentUser} />
+        return ( <CommentList key={comment.id} commentId={comment.id} comment={comment.comment} username={comment.user.username} userId={comment.user.id} datestamp={comment.date} currentUser={currentUser} />
     )})  
-
 
   return (
     <div>
         <div>
             Comments: {commentList}
         </div>
+        
         <div>  
             <form onSubmit={onSubmit}>
             <label>Enter Comment: </label>

@@ -14,6 +14,11 @@ class CommentsController < ApplicationController
         render json: comment, status: :created
     end
 
+    def destroy
+        @comment.destroy
+        render json: {}
+    end
+
     private
 
     def set_comments

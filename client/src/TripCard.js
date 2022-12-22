@@ -25,7 +25,8 @@ export default function TripCard({trip, currentUser}) {
     
           })
       }
-
+      // const mountain = mountains[0].name
+      // console.log(mountain)
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
             {/* <div>Mountain Id: {mountain_id}</div> */}
@@ -33,6 +34,7 @@ export default function TripCard({trip, currentUser}) {
             <div>Start: {trip_start}</div>
             <div>End: {trip_end}</div>
             <div>Location: {mountains.map(mtnInfo => <p>{mtnInfo.name}</p>)}</div>
+            {/* <div>Location: <p>{mountain}</p></div> */}
             <div>People Joining: {users.map(userInfo => <p>{userInfo.first_name}</p>)}</div>
             {/* <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div> */}
             <Comments key={trip.id} trip={trip} currentUser={currentUser} />
