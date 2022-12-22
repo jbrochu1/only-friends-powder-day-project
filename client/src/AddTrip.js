@@ -4,28 +4,26 @@ import { useNavigate } from "react-router-dom"
 export default function AddTrip({currentUser, updateUser}) {
     
     const [tripData, setTripData] = useState({
-        // user_id: '',
+        mountain_id: '',
         trip_start: '',
         trip_end: ''
-        // mountain_id: ''
       })
-      const [mtnTripData, setMtnTripData] = useState([
-        // trip_id: '',
-        // mountain_id: ''
-      ])
-      const [mountains, setMountains] = useState([])
-      const [tripId, setTripId] = useState([])
-      const [errors, setErrors] = useState([])
-      const navigate = useNavigate
+    // const [mtnData, setMtnData] = useState({
+    //   mountain_id: '',
+    // });
+      
+    const [mountains, setMountains] = useState([])
+    const [errors, setErrors] = useState([])
+    const navigate = useNavigate
     
     
       // SETS FORMDATA FOR INPUT ELEMENTS BELOW
-      const handleChange = (e) => {
-        e.preventDefault()
-        const { name, value } = e.target
-        setTripData({ ...tripData, [name]: value })
-        setMtnTripData({...mtnTripData, [name]: value })
-      }
+    const handleChange = (e) => {
+      e.preventDefault()
+      const { name, value } = e.target
+      setTripData({ ...tripData, [name]: value })
+      // setMtnData({...mtnData, [name]: value })
+    }
     
       // PERSISTS NEW TRIP TO DATABASE & REFRESHES PAGE
   function onSubmit() {
@@ -38,48 +36,40 @@ export default function AddTrip({currentUser, updateUser}) {
         if (res.ok) {
           res.json()
           // .then((newTrip) => { handleNewTrip(newTrip) })
-          // setTripId(res.id)
-          console.log(tripId);
-          // throw "quotes"
-          // setMtnTripData(mtnTripData.mountain_id)
-          // setTripData(tripData)?
+          //navigate home?
         } else {
           //Display errors
-          res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-          console.log("else")
-          // throw "quotes"
+          res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))          
         }
       })
-      console.log(tripId)
 
-      
-      // fetch('/mountain_trips', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ ...mtnTripData, })
-      //   // body: JSON.stringify({ ...formData, mountain_id: mtnId, user_id: currentUser.id })
-      // })
-      //   .then(res => {
-      //     if (res.ok) {
-      //       res.json();
-      //       navigate('/');
-      //     } else {
-      //       //Display errors
-      //       res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-      //     }
-      //   })
-  }
+  //     fetch('/mountain_trips', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ mtnId })
+  //     })
+  //       .then(res => {
+  //         if (res.ok) {
+  //           res.json()
+  //           // .then((newTrip) => { handleNewTrip(newTrip) })
+  //           //navigate home?
+  //         } else {
+  //           //Display errors
+  //           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))          
+  //         }
+  //       })
+  // }
 
-      const fetchAuthorizedUser = () => {
-        fetch('/authorized_user')
-          .then((res) => {
-            if(res.ok){
-              res.json()
-                .then((currentUser) => {
-                  updateUser(currentUser)
-                })
-            }
-          })
+      // const fetchAuthorizedUser = () => {
+      //   fetch('/authorized_user')
+      //     .then((res) => {
+      //       if(res.ok){
+      //         res.json()
+      //           .then((currentUser) => {
+      //             updateUser(currentUser)
+      //           })
+      //       }
+      //     })
       }
     
 
@@ -95,7 +85,7 @@ export default function AddTrip({currentUser, updateUser}) {
                 <label>
                     Mountain ID#
                 </label>
-                <input type='text' name='mountain_id' className='w-2/3 float-right' value={mtnTripData.mountain_id} onChange={handleChange} />
+                <input type='text' name='mountain_id' className='w-2/3 float-right' value={tripData.mountain_id} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>

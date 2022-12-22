@@ -25,15 +25,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_221456) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "mountain_trips", force: :cascade do |t|
-    t.bigint "trip_id", null: false
-    t.bigint "mountain_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["mountain_id"], name: "index_mountain_trips_on_mountain_id"
-    t.index ["trip_id"], name: "index_mountain_trips_on_trip_id"
-  end
-
   create_table "mountains", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -46,11 +37,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_221456) do
   end
 
   create_table "trips", force: :cascade do |t|
+    t.bigint "mountain_id", null: false
     t.bigint "user_id", null: false
     t.datetime "trip_start"
     t.datetime "trip_end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mountain_id"], name: "index_trips_on_mountain_id"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -79,8 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_221456) do
 
   add_foreign_key "comments", "trips"
   add_foreign_key "comments", "users"
-  add_foreign_key "mountain_trips", "mountains"
-  add_foreign_key "mountain_trips", "trips"
+  add_foreign_key "trips", "mountains"
   add_foreign_key "trips", "users"
   add_foreign_key "user_trips", "trips"
   add_foreign_key "user_trips", "users"
