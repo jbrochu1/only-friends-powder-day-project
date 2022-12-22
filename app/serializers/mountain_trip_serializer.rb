@@ -1,5 +1,5 @@
 class MountainTripSerializer < ActiveModel::Serializer
-  attributes :id
-  has_one :trip
-  has_one :mountain
+  attributes :id, :user_id, :mountain_id
+  belongs_to :trip
+  belongs_to :mountain
 end

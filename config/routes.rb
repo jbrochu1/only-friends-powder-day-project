@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :trips
   resources :mountains
   resources :user_trips
-  resources :mountain_trips
   resources :users, only: [:index, :show, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
