@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import TripCard from "./TripCard";
 
 
-export default function TripDetail({currentUser}) {
+export default function TripDetail({currentUser, setIsVisible}) {
     const [trip, setTrip] = useState({
         comments: [],
         mountains: [],
@@ -18,6 +18,7 @@ export default function TripDetail({currentUser}) {
             .then((r) => r.json())
             .then((trip) => {
                 setTrip(trip);
+                // setIsVisible(false);
             });
     }, [id]);
    
@@ -25,7 +26,7 @@ export default function TripDetail({currentUser}) {
 
     return (
         <>
-        <TripCard trip={trip} currentUser={currentUser} />
+        <TripCard trip={trip} currentUser={currentUser} setIsVisible={setIsVisible}/>
         </>
     )
 }

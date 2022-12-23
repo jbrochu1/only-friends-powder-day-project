@@ -13,6 +13,7 @@ function App() {
   const [trips, setTrips] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
   const [errors, setErrors] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
 
 
   useEffect(() => {
@@ -44,11 +45,11 @@ function App() {
     {!currentUser? <Login error={'please login'} updateUser={updateUser}/> : 
     
       <Routes>
-        <Route path='/' element={<Home updateUser={updateUser} currentUser={currentUser} />} />
+        <Route path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
         <Route path='/login' element={<Login updateUser={updateUser} />} />
         <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} />} />
         {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
-        <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} />} />
+        <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
       </Routes>
     }
     </Router>
