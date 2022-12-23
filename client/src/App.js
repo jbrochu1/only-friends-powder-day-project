@@ -6,6 +6,7 @@ import Nav from './Nav';
 import Login from './Login';
 import AddTrip from './AddTrip';
 // import EditUser from './EditUser';
+import TripDetail from './TripDetail';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
         <Route path='/login' element={<Login updateUser={updateUser} />} />
         <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} />} />
         {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
-        {/* <Route path='/trips/:id' element={<TripDetails updateUser={updateUser} currentUser={currentUser} deleteTrip={deleteTrip}/>} /> */}
+        <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} />} />
       </Routes>
     }
     </Router>

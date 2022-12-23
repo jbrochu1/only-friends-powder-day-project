@@ -8,7 +8,6 @@ export default function CommentList({currentUser, comment, username, datestamp, 
         // onDeleteContent()
         window.location.reload();
     }
-console.log(commentId)
     return(
         <div>
             <div>

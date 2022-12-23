@@ -50,7 +50,7 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
           // throw "quotes"
         }
       })
-      console.log(tripId)
+      
 
       fetch('/mountain_trips', {
         method: 'POST',
