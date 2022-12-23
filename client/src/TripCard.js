@@ -38,6 +38,7 @@ export default function TripCard({trip, currentUser}) {
           {mtnInfo.name}
         </div>
       })
+        // console.log(trip)
 
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
