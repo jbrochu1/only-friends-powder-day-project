@@ -18,16 +18,16 @@ m2 = Mountain.create(name: 'mountain2', address: 'address 2', image: 'abc', elev
 
 # t1 = Trip.create(mountain_id: '', user_id: '', trip_start: '', trip_end: '')
 puts "Creating TEST Trips"
-t1 = Trip.create(user_id: u1.id, trip_start: 'December 16, 2022 11:30', trip_end: 'December 17, 2022 11:30')
-t2 = Trip.create(user_id: u2.id, trip_start: 'December 16, 2022 11:30', trip_end: 'December 17, 2022 11:30')
+t1 = Trip.create(user_id: u1.id, mountain_id: m1.id, trip_start: 'December 16, 2022 11:30', trip_end: 'December 17, 2022 11:30')
+t2 = Trip.create(user_id: u2.id, mountain_id: m2.id, trip_start: 'December 16, 2022 11:30', trip_end: 'December 17, 2022 11:30')
 
 puts "Creating TEST UserTrips"
 ut1 = UserTrip.create(user_id: u1.id, trip_id: t1.id)
 ut2 = UserTrip.create(user_id: u1.id, trip_id: t2.id)
 
-puts "Creating TEST MountainTrips"
-mt1 = MountainTrip.create(mountain_id: m1.id, trip_id: t1.id)
-mt2 = MountainTrip.create(mountain_id: m2.id, trip_id: t2.id)
+# puts "Creating TEST MountainTrips"
+# mt1 = MountainTrip.create(mountain_id: m1.id, trip_id: t1.id)
+# mt2 = MountainTrip.create(mountain_id: m2.id, trip_id: t2.id)
 
 # c1 = Comment.create(trip_id: '', user_id: '', comment: '', date: '')
 puts "Creating TEST Comments"

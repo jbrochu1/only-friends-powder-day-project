@@ -1,26 +1,20 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import EditTripForm from "./EditTripForm";
 
 export default function EditTrip({ currentUser, updateUser }) {
   const [tripData, setTripData] = useState({
     id: "",
     user_id: "",
     trip_start: "",
-    trip_end: ""
+    trip_end: "",
+    mountain_id: "",
   });
-  const [mtnTripData, setMtnTripData] = useState([
-    // trip_id: '',
-    // id: '',
-    // mountain_id: ''
-    {id: "", trip_id: "", mountain_id: "", created_at: "", update_at: ""}
-  ]);
+  // const [mtnTripData, setMtnTripData] = useState([
+  //   {id: "", trip_id: "", mountain_id: "", created_at: "", update_at: ""}
+  // ]);
   const [errors, setErrors] = useState([]);
   //   const navigate = useNavigate
   const { id } = useParams();
-
-  // const {user_id, trip_start, trip_end, mountains} = tripData
-  // const {mountain_id} = mtnTripData
 
 
   useEffect(() => {
@@ -28,8 +22,6 @@ export default function EditTrip({ currentUser, updateUser }) {
       .then((r) => r.json())
       .then((Data) => {
         setTripData(Data);
-        setMtnTripData(Data.mountain_trips);
-        // setMtnTripData(mtnTripData);
       });
   }, []);
 
@@ -37,7 +29,6 @@ export default function EditTrip({ currentUser, updateUser }) {
     e.preventDefault()
     const { name, value } = e.target
     setTripData({ ...tripData, [name]: value })
-    setMtnTripData({...mtnTripData, [name]: value })
   }
 
   function onSubmit() {
@@ -46,7 +37,8 @@ export default function EditTrip({ currentUser, updateUser }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
         trip_start: tripData.trip_start,
-        trip_end: tripData.trip_end
+        trip_end: tripData.trip_end,
+        mountain_id: tripData.mountain_id
     })
     })
       .then(res => {
@@ -60,8 +52,7 @@ export default function EditTrip({ currentUser, updateUser }) {
       })
    
   }   
-          console.log(mtnTripData[0].mountain_id)
-          console.log(tripData)
+            console.log(tripData)
 
 
   return (
@@ -77,7 +68,7 @@ export default function EditTrip({ currentUser, updateUser }) {
                     Mountain ID#
                 </label>
                 {/* {mtnTrips} */}
-                <input type='text' name='mountain_id' className='w-2/3 float-right' value={mtnTripData[0].mountain_id} onChange={handleChange} />
+                <input type='text' name='mountain_id' className='w-2/3 float-right' value={tripData.mountain_id} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>

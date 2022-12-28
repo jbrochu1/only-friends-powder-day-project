@@ -4,7 +4,7 @@ import Comments from "./Comments"
 
 
 export default function TripCard({trip, currentUser, isVisible}) {
-    const {id, user_id, trip_start, trip_end, mountains, users} = trip
+    const {id, user_id, trip_start, trip_end, mountain_id, users} = trip
     const [errors, setErrors] = useState([])
     // const mtnNames = mountains.map(mountain => name={mountain.name})
     
@@ -32,12 +32,11 @@ export default function TripCard({trip, currentUser, isVisible}) {
         </div>
         // return <PeopleJoining key={userInfo.id} userInfo={userInfo}/>
       })
-      const mtnsInfo = mountains.map(mtnInfo => {
-      //   // return <Mountains key={mountainInfo.id} mountainInfo={mountainInfo}/>
-        <div key={mtnInfo.id}>
-          {mtnInfo.name}
-        </div>
-      })
+      // const mtnsInfo = mountains.map(mtnInfo => {
+      //   <div key={mtnInfo.id}>
+      //     {mtnInfo.name}
+      //   </div>
+      // })
 
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
@@ -45,7 +44,7 @@ export default function TripCard({trip, currentUser, isVisible}) {
             <div>Creator: {user_id}</div>
             <div>Start: {trip_start}</div>
             <div>End: {trip_end}</div>
-            <div>Location: {mtnsInfo}</div>
+            <div>Location: {mountain_id}</div>
             <div>People Joining: {usersInfo}</div>
             {/* <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div> */}
             <Comments key={trip.id} trip={trip} currentUser={currentUser} />
