@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function EditTrip({ currentUser, updateUser }) {
+export default function EditTrip({ currentUser, updateUser, mountains }) {
   const [tripData, setTripData] = useState({
     id: "",
     user_id: "",
@@ -9,16 +9,17 @@ export default function EditTrip({ currentUser, updateUser }) {
     trip_end: "",
     mountain_id: "",
   });
-  // const [mtnTripData, setMtnTripData] = useState([
-  //   {id: "", trip_id: "", mountain_id: "", created_at: "", update_at: ""}
-  // ]);
+
+  // const {id, name } = mountains
+
+  
   const [errors, setErrors] = useState([]);
   //   const navigate = useNavigate
-  const { id } = useParams();
+  const { tripId } = useParams();
 
 
   useEffect(() => {
-    fetch(`/trips/${id}`)
+    fetch(`/trips/${tripId}`)
       .then((r) => r.json())
       .then((Data) => {
         setTripData(Data);
@@ -32,7 +33,7 @@ export default function EditTrip({ currentUser, updateUser }) {
   }
 
   function onSubmit() {
-    fetch(`/trips/${id}`, {
+    fetch(`/trips/${tripId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -51,8 +52,11 @@ export default function EditTrip({ currentUser, updateUser }) {
         }
       })
    
-  }   
-            console.log(tripData)
+  }
+  
+    const mtns = mountains.map(mtn => <option key={mtn.id} value={mtn.mountain_id}>{mtn.id}</option>)
+            console.log(mtns)
+            console.log(mountains)
 
 
   return (
@@ -67,8 +71,11 @@ export default function EditTrip({ currentUser, updateUser }) {
                 <label>
                     Mountain ID#
                 </label>
-                {/* {mtnTrips} */}
-                <input type='text' name='mountain_id' className='w-2/3 float-right' value={tripData.mountain_id} onChange={handleChange} />
+                
+                <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange}>
+                {mtns}  
+                </select>
+                {/* <input type='text' name='mountain_id' className='w-2/3 float-right' value={tripData.mountain_id} onChange={handleChange} /> */}
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>

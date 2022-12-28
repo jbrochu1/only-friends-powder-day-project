@@ -15,6 +15,17 @@ function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [errors, setErrors] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
+  const [mountains, setMountains] = useState([
+    {
+      
+      name: "",
+      address: "",
+      image: "",
+      elevation: "",
+      blackout_dates: "",
+      ski_pass: ""
+    }
+  ])
 
 
   useEffect(() => {
@@ -24,6 +35,14 @@ function App() {
         res.json().then(user => {
           updateUser(user)
           // fetchTrips()
+        })
+      }
+    })
+    fetch('/mountains')
+    .then(res => {
+      if(res.ok){
+        res.json().then(mtns => {
+          setMountains(mtns)        
         })
       }
     })
@@ -48,10 +67,10 @@ function App() {
       <Routes>
         <Route path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
         <Route path='/login' element={<Login updateUser={updateUser} />} />
-        <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} />} />
+        <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
         {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
-        <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
-        <Route path='/trips/edit/:id' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+        <Route path='/trips/:tripId' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+        <Route path='/trips/edit/:tripId' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
       </Routes>
     }
     </Router>

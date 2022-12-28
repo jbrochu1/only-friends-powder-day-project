@@ -10,17 +10,17 @@ export default function TripDetail({currentUser, setIsVisible}) {
         users: []
     })
     const [placeContents, setPlaceContents] = useState([])
-    const { id } = useParams()
+    const { tripId } = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
-        fetch(`/trips/${id}`)
+        fetch(`/trips/${tripId}`)
             .then((r) => r.json())
             .then((trip) => {
                 setTrip(trip);
                 // setIsVisible(false);
             });
-    }, [id]);
+    }, []);
    
     // console.log(trip)
 
