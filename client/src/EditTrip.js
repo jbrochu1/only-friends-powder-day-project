@@ -10,8 +10,6 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
     mountain_id: "",
   });
 
-  // const {id, name } = mountains
-
   
   const [errors, setErrors] = useState([]);
   //   const navigate = useNavigate
@@ -45,7 +43,6 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
       .then(res => {
         if (res.ok) {
           res.json()
-        //   .then((res)=>setTripId(res.id)) 
         } else {
           //Display errors
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
@@ -54,9 +51,14 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
    
   }
   
-    const mtns = mountains.map(mtn => <option key={mtn.id} value={mtn.mountain_id}>{mtn.id}</option>)
+    const mtns = mountains.map(mtn => {
+      return (<option key={mtn.id} value={mtn.id}>{mtn.name}</option>)
+    })
+
+
             console.log(mtns)
-            console.log(mountains)
+            // console.log(mountains)
+            console.log(tripData)
 
 
   return (
@@ -72,7 +74,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
                     Mountain ID#
                 </label>
                 
-                <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange}>
+                <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
                 {mtns}  
                 </select>
                 {/* <input type='text' name='mountain_id' className='w-2/3 float-right' value={tripData.mountain_id} onChange={handleChange} /> */}
