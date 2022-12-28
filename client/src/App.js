@@ -7,6 +7,7 @@ import Login from './Login';
 import AddTrip from './AddTrip';
 // import EditUser from './EditUser';
 import TripDetail from './TripDetail';
+import EditTrip from './EditTrip';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
         <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} />} />
         {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
         <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+        <Route path='/trips/edit/:id' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
       </Routes>
     }
     </Router>

@@ -22,7 +22,7 @@ export default function TripDetail({currentUser, setIsVisible}) {
             });
     }, [id]);
    
-    console.log(trip)
+    // console.log(trip)
 
     return (
         <>

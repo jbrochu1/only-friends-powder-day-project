@@ -13,7 +13,6 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
         trip_id: '',
         mountain_id: ''
       })
-      const [mountains, setMountains] = useState([])
       const [tripId, setTripId] = useState([])
       const [errors, setErrors] = useState([])
       const navigate = useNavigate
@@ -46,8 +45,6 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
         } else {
           //Display errors
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-          console.log("else")
-          // throw "quotes"
         }
       })
       
@@ -69,18 +66,6 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
         })
   }
 
-
-      const fetchAuthorizedUser = () => {
-        fetch('/authorized_user')
-          .then((res) => {
-            if(res.ok){
-              res.json()
-                .then((currentUser) => {
-                  updateUser(currentUser)
-                })
-            }
-          })
-      }
     
 
     return (
