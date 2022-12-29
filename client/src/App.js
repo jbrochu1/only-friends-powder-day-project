@@ -39,14 +39,14 @@ function App() {
         })
       }
     })
-    // fetch('/mountains')
-    // .then(res => {
-    //   if(res.ok){
-    //     res.json().then(mtns => {
-    //       setMountains(mtns)        
-    //     })
-    //   }
-    // })
+    fetch('/mountains')
+    .then(res => {
+      if(res.ok){
+        res.json().then(mtns => {
+          setMountains(mtns)        
+        })
+      }
+    })
   },[])
   
     // STATE HANDLER FOR USER V. GUEST
@@ -60,23 +60,30 @@ function App() {
   return (
     <>
     <Router>
-    <Nav updateUser={updateUser} currentUser={currentUser}/>
+    
 
-    {!currentUser ? (
-      <>    
-        <Login error={'please login'} updateUser={updateUser}/>
+    {currentUser ? (
+      <>
+        <Nav updateUser={updateUser} currentUser={currentUser}/>
+        <Routes>
+          <Route path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+          <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
+          {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
+          
+          <Route path='/trips/:tripId' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+          <Route path='/trips/edit/:tripId' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
+      </Routes>   
       </>
     )
     : (
-      <Routes>
-        <Route path='/home' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
-        <Route path='/login' element={<Login updateUser={updateUser} />} />
-        <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
-        {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
-        {/* <Route path='/users/new' element={<Signup />} /> */}
-        <Route path='/trips/:tripId' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
-        <Route path='/trips/edit/:tripId' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
-      </Routes>
+      <>
+      
+      
+        <Routes>
+          <Route path='/' element={<Login error={'please login or signup'} updateUser={updateUser}/>} />
+          <Route path='/users/new' element={<Signup />} />
+        </Routes> 
+      </>
     )}
     </Router>
     </>

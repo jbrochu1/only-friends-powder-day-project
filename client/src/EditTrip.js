@@ -52,7 +52,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
   }
   
     const mtns = mountains.map(mtn => {
-      return (<option key={mtn.id} value={mtn.id}>{mtn.name}</option>)
+      return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
     })
 
 
