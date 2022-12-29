@@ -8,6 +8,7 @@ import AddTrip from './AddTrip';
 // import EditUser from './EditUser';
 import TripDetail from './TripDetail';
 import EditTrip from './EditTrip';
+import Signup from './Signup';
 
 
 function App() {
@@ -38,14 +39,14 @@ function App() {
         })
       }
     })
-    fetch('/mountains')
-    .then(res => {
-      if(res.ok){
-        res.json().then(mtns => {
-          setMountains(mtns)        
-        })
-      }
-    })
+    // fetch('/mountains')
+    // .then(res => {
+    //   if(res.ok){
+    //     res.json().then(mtns => {
+    //       setMountains(mtns)        
+    //     })
+    //   }
+    // })
   },[])
   // console.log(currentUser)
   
@@ -62,13 +63,16 @@ function App() {
     <Router>
     <Nav updateUser={updateUser} currentUser={currentUser}/>
 
-    {!currentUser? <Login error={'please login'} updateUser={updateUser}/> : 
+    {!currentUser? 
+    <Login error={'please login'} updateUser={updateUser}/> 
+    : 
     
       <Routes>
         <Route path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
         <Route path='/login' element={<Login updateUser={updateUser} />} />
         <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
         {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
+        <Route path='/users/new' element={<Signup />} />
         <Route path='/trips/:tripId' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
         <Route path='/trips/edit/:tripId' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
       </Routes>

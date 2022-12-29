@@ -1,7 +1,48 @@
+import { useState } from "react"
+
 export default function Signup() {
+    const [newUser, setNewUser] = useState([
+        {
+            username:'',
+            email:'',
+            first_name:'',
+            last_name:'',
+            age:'',
+            avatar:'',
+            neighberhood:''
+        }
+    ])
+    const [errors, setErrors] = useState([])
 
-    
 
+
+    const handleChange = (e) => {
+        e.preventDefault()
+        const { name, value } = e.target
+        setNewUser({ ...newUser, [name]: value })
+      }
+
+      function onSubmit() {
+        fetch('/users', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...newUser})
+        })
+          .then(res => {
+            if (res.ok) {
+              res.json()
+              
+              // .then((newTrip) => { handleNewTrip(newTrip) })
+              // setTripId(res.id)
+              // throw "quotes"
+              // setMtnTripData(mtnTripData.mountain_id)
+              // setTripData(tripData)?
+            } else {
+              //Display errors
+              res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+            }
+          })
+        }
     return (
         <>
         <div>
@@ -14,43 +55,43 @@ export default function Signup() {
                 <label>
                     Username
                 </label>
-                <input type='text' name='username' className='w-2/3 float-right' value={username} onChange={handleChange} />
+                <input type='text' name='username' className='w-2/3 float-right' value={newUser.username} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     Email
                 </label>
-                <input type='text' name='email' className='w-2/3 float-right' value={email} onChange={handleChange} />
+                <input type='text' name='email' className='w-2/3 float-right' value={newUser.email} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     Password
                 </label>
-                <input type='password' name='password' className='w-2/3 float-right' placeholder="Password..." value={password} onChange={handleChange} />
+                <input type='password' name='password' className='w-2/3 float-right' placeholder="Password..." value={newUser.password} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     First Name
                 </label>
-                <input type='text' name='first_name' className='w-2/3 float-right' value={first_name} onChange={handleChange} />
+                <input type='text' name='first_name' className='w-2/3 float-right' value={newUser.first_name} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     Last Name
                 </label>
-                <input type='text' name='last_name' className='w-2/3 float-right' value={last_name} onChange={handleChange} />
+                <input type='text' name='last_name' className='w-2/3 float-right' value={newUser.last_name} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     Location (State)
                 </label>
-                <input type='text' name='location'  className='w-1/2 float-right' value={location} onChange={handleChange} />
+                <input type='text' name='location'  className='w-1/2 float-right' value={newUser.location} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     Age
                 </label>
-                <input type='text' name='age' className='w-2/3 float-right' value={age} onChange={handleChange} />
+                <input type='text' name='age' className='w-2/3 float-right' value={newUser.age} onChange={handleChange} />
                 </div>
                 <div className='p-1'>
                 <label>
@@ -58,12 +99,13 @@ export default function Signup() {
                 </label>
                 </div>
                 <div className='p-5'>
-                <input type='text' name='avatar_img'  className='w-full float-right' value={avatar_img} onChange={handleChange} />
+                <input type='text' name='avatar_img'  className='w-full float-right' value={newUser.avatar_img} onChange={handleChange} />
                 </div>
                 <div className='p-5'>
                 <input type='submit' value='Sign Up' className='p-3 shadow bg-indigo-600 hover:bg-indigo-500 focus:shadow-outline focus:outline-none text-white font-bold rounded'/>
                 </div>
             </form>
+                
             </div>
             { errors ? errors.map(err => <div>{ (err[0]) + ': ' + (err[1]) }</div>) : null }
             </>
