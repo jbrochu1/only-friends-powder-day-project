@@ -35,25 +35,11 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
     })
       .then(res => {
         if (res.ok) {
-          res.json().then((res)=>setTripId(res.id))
-          
-          // .then((newTrip) => { handleNewTrip(newTrip) })
-          // setTripId(res.id)
-          // throw "quotes"
-          // setMtnTripData(mtnTripData.mountain_id)
-          // setTripData(tripData)?
+          res.json()
         } else {
           //Display errors
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
         }
-      })
-      
-
-      fetch('/mountain_trips', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...mtnTripData, trip_id: tripId.id })
-        // body: JSON.stringify({ ...formData, mountain_id: mtnId, user_id: currentUser.id })
       })
         .then(res => {
           if (res.ok) {

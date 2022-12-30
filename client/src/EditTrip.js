@@ -13,11 +13,11 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
   
   const [errors, setErrors] = useState([]);
   //   const navigate = useNavigate
-  const { tripId } = useParams();
+  const { id } = useParams();
 
 
   useEffect(() => {
-    fetch(`/trips/${tripId}`)
+    fetch(`/trips/${id}`)
       .then((r) => r.json())
       .then((Data) => {
         setTripData(Data);
@@ -31,7 +31,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
   }
 
   function onSubmit() {
-    fetch(`/trips/${tripId}`, {
+    fetch(`/trips/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
@@ -56,9 +56,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
     })
 
 
-            console.log(mtns)
-            // console.log(mountains)
-            console.log(tripData)
+
 
 
   return (

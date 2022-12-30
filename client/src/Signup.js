@@ -1,19 +1,21 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
-export default function Signup() {
+export default function Signup({updateUser}) {
     const [newUser, setNewUser] = useState([
         {
             username:'',
+            password:'',
             email:'',
             first_name:'',
             last_name:'',
             age:'',
             avatar:'',
-            neighberhood:''
+            neighborhood:''
         }
     ])
     const [errors, setErrors] = useState([])
+    const navigate = useNavigate()
 
 
 
@@ -31,13 +33,10 @@ export default function Signup() {
         })
           .then(res => {
             if (res.ok) {
-              res.json()
-              
-              // .then((newTrip) => { handleNewTrip(newTrip) })
-              // setTripId(res.id)
-              // throw "quotes"
-              // setMtnTripData(mtnTripData.mountain_id)
-              // setTripData(tripData)?
+              res.json().then(user => {
+                updateUser(user)
+                navigate(`/home`)
+              })
             } else {
               //Display errors
               res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
@@ -86,7 +85,7 @@ export default function Signup() {
                 <label>
                     Location (State)
                 </label>
-                <input type='text' name='location'  className='w-1/2 float-right' value={newUser.location} onChange={handleChange} />
+                <input type='text' name='neighborhood'  className='w-1/2 float-right' value={newUser.neighborhood} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>

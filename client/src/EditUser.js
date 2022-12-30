@@ -1,6 +1,6 @@
 // import { useParams } from "react-router-dom"
 
-// export default function EditUser() {
+export default function EditUser() {
 //     const [formData, setFormData] = useState({
 //         username:'',
 //         email:'',
@@ -37,9 +37,9 @@
 //         // })
 //     }
     
-//     return (
-//         <>
-//         <div>
+    return (
+        <>
+{/* //         <div>
 //             <p className='text-2xl p-3'>Edit Profile</p>
 //         </div>
 //         <div className='p-2 max-w-lg'>
@@ -59,12 +59,12 @@
 //                 </div>
 //                 <div className='p-2 space-x-2'>
 //                 <label>
-//                     {/* Password
+//                     Password
 //                 </label>
 //                 <input type='password' name='password' className='w-2/3 float-right' placeholder="Password..." value={password} onChange={handleChange} />
 //                 </div>
 //                 <div className='p-2 space-x-2'>
-//                 <label> */}
+//                 <label>
 //                     First Name
 //                 </label>
 //                 <input type='text' name='first_name' className='w-2/3 float-right' value={first_name} onChange={handleChange} />
@@ -100,7 +100,7 @@
 //                 </div>
 //             </form>
 //             </div>
-//             { errors ? errors.map(err => <div>{ (err[0]) + ': ' + (err[1]) }</div>) : null }
-//         </>
-//     )
-// }
+//             { errors ? errors.map(err => <div>{ (err[0]) + ': ' + (err[1]) }</div>) : null } */}
+    </>
+    )
+}
