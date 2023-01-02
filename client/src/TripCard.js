@@ -27,10 +27,11 @@ export default function TripCard({trip, currentUser, isVisible}) {
       }
       
       const usersInfo = users.map(userInfo => {
+        return (
         <div key={userInfo.id}>
           {userInfo.first_name}
-        </div>
-        // return <PeopleJoining key={userInfo.id} userInfo={userInfo}/>
+        </div>)
+        
       })
       // const mtnsInfo = mountains.map(mtnInfo => {
       //   <div key={mtnInfo.id}>
