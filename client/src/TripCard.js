@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import Comments from "./Comments"
+import { format } from 'date-fns'
+
 
 
 export default function TripCard({trip, currentUser, isVisible}) {
@@ -44,8 +46,8 @@ export default function TripCard({trip, currentUser, isVisible}) {
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
             {/* <div>Mountain Id: {mountain_id}</div> */}
             <div>Creator: {user_id}</div>
-            <div>Start: {trip_start}</div>
-            <div>End: {trip_end}</div>
+            <div>Start: {format(new Date(trip_start), 'E MM/dd/yyyy')}</div>
+            <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy')}</div>
             <div>Location: {mountain_id}</div>
             <div>People Joining: {usersInfo}</div>
             {/* <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div> */}

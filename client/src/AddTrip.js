@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css'
 
 export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     
@@ -68,6 +70,8 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
                 <label>
                     Start Date
                 </label>
+                <Calendar />
+                    
                 <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} />
                 </div>
                 <div className='p-2 space-x-2'>
