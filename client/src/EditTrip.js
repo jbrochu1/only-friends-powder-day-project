@@ -69,13 +69,12 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
             <form onSubmit={onSubmit} className='justify-center items-center'>
             <div className='p-2 space-x-2'>
                 <label>
-                    Mountain ID#
+                    Select Mountain
                 </label>
                 
                 <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
                 {mtns}  
                 </select>
-                {/* <input type='text' name='mountain_id' className='w-2/3 float-right' value={tripData.mountain_id} onChange={handleChange} /> */}
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>

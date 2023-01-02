@@ -1,18 +1,18 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function AddTrip({currentUser, updateUser, addTrip}) {
+export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     
     const [tripData, setTripData] = useState({
         // user_id: '',
         trip_start: '',
-        trip_end: ''
-        // mountain_id: ''
-      })
-      const [mtnTripData, setMtnTripData] = useState({
-        trip_id: '',
+        trip_end: '',
         mountain_id: ''
       })
+      // const [mtnTripData, setMtnTripData] = useState({
+      //   trip_id: '',
+      //   mountain_id: ''
+      // })
       const [tripId, setTripId] = useState([])
       const [errors, setErrors] = useState([])
       const navigate = useNavigate
@@ -23,7 +23,7 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
         e.preventDefault()
         const { name, value } = e.target
         setTripData({ ...tripData, [name]: value })
-        setMtnTripData({...mtnTripData, [name]: value })
+        // setMtnTripData({...mtnTripData, [name]: value })
       }
     
       // PERSISTS NEW TRIP TO DATABASE & REFRESHES PAGE
@@ -41,17 +41,11 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
         }
       })
-        .then(res => {
-          if (res.ok) {
-            res.json();
-            // navigate('/');
-          } else {
-            //Display errors
-            res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-          }
-        })
   }
 
+      const mtns = mountains.map(mtn => {
+        return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
+      })
     
 
     return (
@@ -62,11 +56,13 @@ export default function AddTrip({currentUser, updateUser, addTrip}) {
         <div className='p-2 max-w-lg'>
             { errors ? errors.map(e => <div>{e}</div>) : null}
             <form onSubmit={onSubmit} className='justify-center items-center'>
-            <div className='p-2 space-x-2'>
+                <div className='p-2 space-x-2'>
                 <label>
-                    Mountain ID#
+                    Select Mountain
                 </label>
-                <input type='text' name='mountain_id' className='w-2/3 float-right' value={mtnTripData.mountain_id} onChange={handleChange} />
+                <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
+                {mtns}  
+                </select>
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>

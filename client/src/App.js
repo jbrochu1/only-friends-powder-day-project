@@ -9,6 +9,7 @@ import EditUser from './EditUser';
 import TripDetail from './TripDetail';
 import EditTrip from './EditTrip';
 import Signup from './Signup';
+import Welcome from './Welcome';
 
 
 function App() {
@@ -66,8 +67,8 @@ function App() {
       <>
         <Nav updateUser={updateUser} currentUser={currentUser}/>
         <Routes>
-          <Route exact path='/' element={<Login updateUser={updateUser}/>} />
-          <Route path='/home' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+          {/* <Route exact path='/' element={<Login updateUser={updateUser}/>} /> */}
+          <Route exact path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
           <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
           <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} />
           <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
@@ -77,7 +78,9 @@ function App() {
     )
     : (
       <>
+        <Nav updateUser={updateUser} currentUser={currentUser}/>
         <Routes>
+          {/* <Route exact path='/welcome' element={<Welcome currentUser={currentUser} />}/> */}
           <Route exact path='/' element={<Login error={'please login or signup'} updateUser={updateUser}/>} />
           <Route path='/users/new' element={<Signup updateUser={updateUser}/>} />
         </Routes> 

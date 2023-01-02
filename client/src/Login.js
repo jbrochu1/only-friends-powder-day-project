@@ -34,7 +34,7 @@ function Login({ updateUser, error }) {
                 if (res.ok) {
                     res.json().then(user => {
                         updateUser(user)
-                        navigate(`/home`)
+                        navigate(`/`)
                     })
                 } else {
                     res.json()

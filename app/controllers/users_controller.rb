@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     # SETS THE PARAMETERS THAT USERS CAN MANIPULATE
     def user_params
-        params.permit(:username, :email, :password)
+        params.permit(:username, :email, :password, :first_name, :last_name, :age, :avatar, :neighborhood)
     end
 
 end
