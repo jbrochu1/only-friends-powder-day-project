@@ -72,7 +72,7 @@ function App() {
           <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
           <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} />
           <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
-          <Route path='/trips/edit/:id' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
+          <Route path='/trips/:id/edit' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
         </Routes>   
       </>
     )
