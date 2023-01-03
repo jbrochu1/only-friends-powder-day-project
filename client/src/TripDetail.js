@@ -23,8 +23,8 @@ export default function TripDetail({currentUser, setIsVisible}) {
                 setTrip(trip);
             });
     }, []);
-    console.log('detail')
-    console.log(trip)
+    // console.log('detail')
+    // console.log(trip)
     return (
         <>
         <TripCard trip={trip} currentUser={currentUser} setIsVisible={setIsVisible}/>

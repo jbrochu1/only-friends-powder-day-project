@@ -46,8 +46,8 @@ export default function TripCard({trip, currentUser, isVisible}) {
       //   return !Number.isNaN(new Date(date).getTime());
       // }
       // console.log(dateIsValid(trip_start));
-      console.log('card')
-      console.log(trip)
+      // console.log('card')
+      // console.log(trip)
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
             {/* <div>Mountain Id: {mountain_id}</div> */}
