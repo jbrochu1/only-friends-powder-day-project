@@ -5,7 +5,7 @@ import Home from './Home';
 import Nav from './Nav';
 import Login from './Login';
 import AddTrip from './AddTrip';
-import EditUser from './EditUser';
+// import EditUser from './EditUser';
 import TripDetail from './TripDetail';
 import EditTrip from './EditTrip';
 import Signup from './Signup';
@@ -70,7 +70,7 @@ function App() {
           {/* <Route exact path='/' element={<Login updateUser={updateUser}/>} /> */}
           <Route exact path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
           <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
-          <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} />
+          {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
           <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
           <Route path='/trips/:id/edit' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
         </Routes>   

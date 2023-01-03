@@ -2,18 +2,19 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Signup({updateUser}) {
-    const [formData, setFormData] = useState([
+    const [formData, setFormData] = useState(
         {
             username: '',
             password: '',
             email: '',
+            admin: false,
             first_name: '',
             last_name: '',
             age: '',
             avatar: '',
             neighborhood: ''
         }
-    ])
+    )
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
     const {username, password, email, first_name, last_name, age, avatar, neighborhood} = formData
@@ -32,10 +33,13 @@ export default function Signup({updateUser}) {
             email,
             first_name,
             last_name,
-            age,
+            age: parseInt(formData.age),
             avatar,
             neighborhood    
         }
+
+        console.log(newUser)
+
         fetch('/users', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -53,6 +57,8 @@ export default function Signup({updateUser}) {
             }
           })
         }
+
+        // console.log(formData)
     return (
         <>
         <div>

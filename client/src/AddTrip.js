@@ -5,27 +5,27 @@ import 'react-calendar/dist/Calendar.css'
 
 export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     
-    const [tripData, setTripData] = useState({
-        // user_id: '',
-        trip_start: '',
-        trip_end: '',
-        mountain_id: ''
-      })
-      // const [mtnTripData, setMtnTripData] = useState({
-      //   trip_id: '',
-      //   mountain_id: ''
-      // })
-      const [tripId, setTripId] = useState([])
+    // const [tripData, setTripData] = useState({
+    //     // user_id: '',
+    //     trip_start: '',
+    //     trip_end: '',
+    //     mountain_id: ''
+    //   })
+      const [tripStart, setTripStart] = useState(null)
+      const [tripEnd, setTripEnd] = useState(null)
+      const [mtnId, setMtnId] = useState({mountain_id: 0})
       const [errors, setErrors] = useState([])
       const navigate = useNavigate
     
     
       // SETS FORMDATA FOR INPUT ELEMENTS BELOW
       const handleChange = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         const { name, value } = e.target
-        setTripData({ ...tripData, [name]: value })
-        // setMtnTripData({...mtnTripData, [name]: value })
+        // setTripData({ ...tripData, [name]: value })
+        // setTripStart({...tripStart, [name]: value })
+        // setTripEnd({...tripEnd, [name]: value })
+        setMtnId({...mtnId, [name]: value })
       }
     
       // PERSISTS NEW TRIP TO DATABASE & REFRESHES PAGE
@@ -33,7 +33,7 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     fetch('/trips', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...tripData, user_id: currentUser.id })
+      body: JSON.stringify({ trip_start: tripStart, trip_end: tripEnd, mountain_id: mtnId.mountain_id, user_id: currentUser.id })
     })
       .then(res => {
         if (res.ok) {
@@ -49,6 +49,9 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
         return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
       })
     
+      console.log(mtnId)
+      console.log(tripStart)
+      console.log(tripEnd)
 
     return (
         <>
@@ -62,23 +65,25 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
                 <label>
                     Select Mountain
                 </label>
-                <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
-                {mtns}  
+                <select name="mountain_id" value={mtnId.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
+                  <option>select one</option>
+                  {mtns}  
                 </select>
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     Start Date
                 </label>
-                <Calendar />
+                <Calendar value={tripStart} onChange={setTripStart}/>
                     
-                <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} />
+                {/* <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} /> */}
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     End Date
                 </label>
-                <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} />
+                <Calendar value={tripEnd} onChange={setTripEnd}/>
+                {/* <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} /> */}
                 </div>
                 
                 <div className='p-5'>
