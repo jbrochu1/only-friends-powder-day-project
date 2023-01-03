@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TripCard from "./TripCard";
 
 
@@ -11,7 +11,6 @@ export default function TripDetail({currentUser, setIsVisible}) {
     })
     const [placeContents, setPlaceContents] = useState([])
     const { id } = useParams()
-    const navigate = useNavigate()
 
     useEffect(() => {
         fetch(`/trips/${id}`)
@@ -22,8 +21,6 @@ export default function TripDetail({currentUser, setIsVisible}) {
             });
     }, []);
    
-    // console.log(trip)
-
     return (
         <>
         <TripCard trip={trip} currentUser={currentUser} setIsVisible={setIsVisible}/>

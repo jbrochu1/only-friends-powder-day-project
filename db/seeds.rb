@@ -18,8 +18,8 @@ m2 = Mountain.create(name: 'mountain2', address: 'address 2', image: 'abc', elev
 
 # t1 = Trip.create(mountain_id: '', user_id: '', trip_start: '', trip_end: '')
 puts "Creating TEST Trips"
-t1 = Trip.create(user_id: u1.id, mountain_id: m1.id, trip_start: 'December 16, 2022 11:30', trip_end: 'December 17, 2022 11:30')
-t2 = Trip.create(user_id: u2.id, mountain_id: m2.id, trip_start: 'December 16, 2022 11:30', trip_end: 'December 17, 2022 11:30')
+t1 = Trip.create(user_id: u1.id, mountain_id: m1.id, trip_start: '2022-10-15T11:30-07:00', trip_end: '2022-11-15T11:30-07:00')
+t2 = Trip.create(user_id: u2.id, mountain_id: m2.id, trip_start: '2022-10-10T11:30-07:00', trip_end: '2022-11-10T11:30-07:00')
 
 puts "Creating TEST UserTrips"
 ut1 = UserTrip.create(user_id: u1.id, trip_id: t1.id)
