@@ -46,15 +46,14 @@ export default function TripCard({trip, currentUser, isVisible}) {
       //   return !Number.isNaN(new Date(date).getTime());
       // }
       // console.log(dateIsValid(trip_start));
-
+      console.log('card')
+      console.log(trip)
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
             {/* <div>Mountain Id: {mountain_id}</div> */}
             <div>Creator: {user_id}</div>
-            {/* <div>Start: {toLocaleString(new Date(trip_start))}</div> */}
-            {/* <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy')}</div> */}
-            <div>Start: {trip_start}</div>
-            <div>End: {trip_end}</div>
+            <div>Start: {format(new Date(trip_start), 'E MM/dd/yyyy')}</div>
+            <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy')}</div>
             <div>Location: {mountain_id}</div>
             <div>People Joining: {usersInfo}</div>
             {/* <div>Comments: {comments.map(comment => <p>{comment.user.username}{comment.comment}</p>)}</div> */}

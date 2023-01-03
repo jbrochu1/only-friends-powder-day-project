@@ -5,6 +5,10 @@ import TripCard from "./TripCard";
 
 export default function TripDetail({currentUser, setIsVisible}) {
     const [trip, setTrip] = useState({
+        user_id: "",
+        mountain_id: "",
+        trip_start: "2022-10-15T18:30:00.000Z",
+        trip_end: "2022-10-15T18:30:00.000Z",
         comments: [],
         mountains: [],
         users: []
@@ -19,7 +23,8 @@ export default function TripDetail({currentUser, setIsVisible}) {
                 setTrip(trip);
             });
     }, []);
-   
+    console.log('detail')
+    console.log(trip)
     return (
         <>
         <TripCard trip={trip} currentUser={currentUser} setIsVisible={setIsVisible}/>
