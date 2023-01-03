@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import Calendar from 'react-calendar'
-import 'react-calendar/dist/Calendar.css'
+import DateTimePicker from 'react-datetime-picker'
+import 'react-datetime-picker/dist/DateTimePicker.css'
 
 export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     
@@ -11,9 +11,9 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     //     trip_end: '',
     //     mountain_id: ''
     //   })
-      const [tripStart, setTripStart] = useState(null)
-      const [tripEnd, setTripEnd] = useState(null)
-      const [mtnId, setMtnId] = useState({mountain_id: 0})
+      const [tripStart, setTripStart] = useState(new Date)
+      const [tripEnd, setTripEnd] = useState(new Date)
+      const [mtnId, setMtnId] = useState({mountain_id: ''})
       const [errors, setErrors] = useState([])
       const navigate = useNavigate
     
@@ -74,7 +74,7 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
                 <label>
                     Start Date
                 </label>
-                <Calendar selectRange={true} value={tripStart} onChange={setTripStart}/>
+                <DateTimePicker value={tripStart} onChange={setTripStart}/>
                     
                 {/* <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} /> */}
                 </div>
@@ -82,9 +82,13 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
                 <label>
                     End Date
                 </label>
-                <Calendar value={tripEnd} onChange={setTripEnd}/>
+                
+                <div>
+                <DateTimePicker value={tripEnd} onChange={setTripEnd}/>
                 {/* <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} /> */}
                 </div>
+                </div>
+
                 
                 <div className='p-5'>
                 <input type='submit' value='Add Trip' className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'/>
