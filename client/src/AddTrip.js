@@ -74,7 +74,7 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
                 <label>
                     Start Date
                 </label>
-                <Calendar value={tripStart} onChange={setTripStart}/>
+                <Calendar selectRange={true} value={tripStart} onChange={setTripStart}/>
                     
                 {/* <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} /> */}
                 </div>
