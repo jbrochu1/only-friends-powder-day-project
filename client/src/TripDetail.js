@@ -17,7 +17,6 @@ export default function TripDetail({currentUser, setIsVisible}) {
             .then((r) => r.json())
             .then((trip) => {
                 setTrip(trip);
-                // setIsVisible(false);
             });
     }, []);
    
