@@ -48,10 +48,6 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
       const mtns = mountains.map(mtn => {
         return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
       })
-    
-      console.log(mtnId)
-      console.log(tripStart)
-      console.log(tripEnd)
 
     return (
         <>

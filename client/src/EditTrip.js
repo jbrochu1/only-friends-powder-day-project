@@ -3,19 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import DateTimePicker from 'react-datetime-picker'
 
 export default function EditTrip({ currentUser, updateUser, mountains }) {
-  // const [tripData, setTripData] = useState({
-  //   id: "",
-  //   user_id: "",
-  //   trip_start: new Date,
-  //   trip_end: new Date,
-  //   mountain_id: "",
-  // });
 
   const [tripStart, setTripStart] = useState(new Date)
   const [tripEnd, setTripEnd] = useState(new Date)
   const [mtnId, setMtnId] = useState({mountain_id: ''})
   const [errors, setErrors] = useState([]);
-  //   const navigate = useNavigate
+  const navigate = useNavigate
   const { id } = useParams();
 
 
@@ -49,6 +42,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
       .then(res => {
         if (res.ok) {
           res.json()
+          navigate('/')
         } else {
           //Display errors
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
@@ -60,11 +54,6 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
     const mtns = mountains.map(mtn => {
       return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
     })
-
-    console.log(mtnId)
-    console.log(tripStart)
-    console.log(tripEnd)
-
 
   return (
     <>
