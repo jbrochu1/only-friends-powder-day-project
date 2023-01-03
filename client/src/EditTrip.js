@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import DateTimePicker from 'react-datetime-picker'
 
 export default function EditTrip({ currentUser, updateUser, mountains }) {
-  const [tripData, setTripData] = useState({
-    id: "",
-    user_id: "",
-    trip_start: "",
-    trip_end: "",
-    mountain_id: "",
-  });
+  // const [tripData, setTripData] = useState({
+  //   id: "",
+  //   user_id: "",
+  //   trip_start: new Date,
+  //   trip_end: new Date,
+  //   mountain_id: "",
+  // });
 
-  
+  const [tripStart, setTripStart] = useState(new Date)
+  const [tripEnd, setTripEnd] = useState(new Date)
+  const [mtnId, setMtnId] = useState({mountain_id: ''})
   const [errors, setErrors] = useState([]);
   //   const navigate = useNavigate
   const { id } = useParams();
@@ -20,14 +23,17 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
     fetch(`/trips/${id}`)
       .then((r) => r.json())
       .then((Data) => {
-        setTripData(Data);
+        setMtnId(Data.mountain_id);
+        setTripStart(new Date(Data.trip_start));
+        setTripEnd(new Date(Data.trip_end));
       });
   }, []);
 
   const handleChange = (e) => {
     e.preventDefault()
     const { name, value } = e.target
-    setTripData({ ...tripData, [name]: value })
+    // setTripData({ ...tripData, [name]: value })
+    setMtnId({...mtnId, [name]: value })
   }
 
   function onSubmit() {
@@ -35,9 +41,9 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 
-        trip_start: tripData.trip_start,
-        trip_end: tripData.trip_end,
-        mountain_id: tripData.mountain_id
+        trip_start: tripStart,
+        trip_end: tripEnd,
+        mountain_id: mtnId.mountain_id
     })
     })
       .then(res => {
@@ -55,8 +61,9 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
       return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
     })
 
-
-
+    console.log(mtnId)
+    console.log(tripStart)
+    console.log(tripEnd)
 
 
   return (
@@ -72,7 +79,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
                     Select Mountain
                 </label>
                 
-                <select name="mountain_id" value={tripData.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
+                <select name="mountain_id" value={mtnId.mountain_id} onChange={handleChange} className='w-2/3 float-right'>
                 {mtns}  
                 </select>
                 </div>
@@ -80,13 +87,15 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
                 <label>
                     Start Date
                 </label>
-                <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} />
+                <DateTimePicker value={tripStart} onChange={setTripStart}/>
+                {/* <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} /> */}
                 </div>
                 <div className='p-2 space-x-2'>
                 <label>
                     End Date
                 </label>
-                <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} />
+                <DateTimePicker value={tripEnd} onChange={setTripEnd}/>
+                {/* <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} /> */}
                 </div>
                 
                 <div className='p-5'>
