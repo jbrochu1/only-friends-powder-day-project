@@ -11,11 +11,11 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
     //     trip_end: '',
     //     mountain_id: ''
     //   })
-      const [tripStart, setTripStart] = useState(new Date)
-      const [tripEnd, setTripEnd] = useState(new Date)
+      const [tripStart, setTripStart] = useState(new Date())
+      const [tripEnd, setTripEnd] = useState(new Date())
       const [mtnId, setMtnId] = useState({mountain_id: ''})
       const [errors, setErrors] = useState([])
-      const navigate = useNavigate
+      const navigate = useNavigate()
     
     
       // SETS FORMDATA FOR INPUT ELEMENTS BELOW
@@ -38,6 +38,7 @@ export default function AddTrip({currentUser, mountains, updateUser, addTrip}) {
       .then(res => {
         if (res.ok) {
           res.json()
+          navigate('/')
         } else {
           //Display errors
           res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))

@@ -16,6 +16,11 @@ class UserTripsController < ApplicationController
         render json: usertrip, status: :created
     end
 
+    def destroy
+        @user_trip.destroy
+        head :no_content
+    end
+
     private
 
     def set_user_trip

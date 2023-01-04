@@ -22,6 +22,11 @@ class TripsController < ApplicationController
         render json: @trip, status: :accepted
     end
 
+    def destroy
+        @trip.destroy
+        head :no_content
+    end
+
     private
 
     def set_trip

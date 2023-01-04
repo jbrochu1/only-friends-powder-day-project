@@ -1,6 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Home from './Home';
 import Nav from './Nav';
 import Login from './Login';
@@ -9,10 +9,10 @@ import AddTrip from './AddTrip';
 import TripDetail from './TripDetail';
 import EditTrip from './EditTrip';
 import Signup from './Signup';
-import Welcome from './Welcome';
+// import Welcome from './Welcome';
 
 
-function App() {
+export default function App() {
   const [trips, setTrips] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
   const [errors, setErrors] = useState(false)
@@ -58,37 +58,49 @@ function App() {
 
   if(errors) return <h1>{errors}</h1>
 
+  console.log(currentUser)
+
   return (
     <>
-    <Router>
     
 
-    {currentUser ? (
-      <>
-        <Nav updateUser={updateUser} currentUser={currentUser}/>
-        <Routes>
-          {/* <Route exact path='/' element={<Login updateUser={updateUser}/>} /> */}
-          <Route exact path='/' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
-          <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
-          {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
-          <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
-          <Route path='/trips/:id/edit' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
-        </Routes>   
-      </>
-    )
-    : (
-      <>
+    
+    
         <Nav updateUser={updateUser} currentUser={currentUser}/>
         <Routes>
           {/* <Route exact path='/welcome' element={<Welcome currentUser={currentUser} />}/> */}
-          <Route exact path='/' element={<Login error={'please login or signup'} updateUser={updateUser}/>} />
+          <Route path='/login' element={<Login error={'please login or signup'} updateUser={updateUser}/>} />
           <Route path='/users/new' element={<Signup updateUser={updateUser}/>} />
-        </Routes> 
-      </>
-    )}
-    </Router>
+          
+          <Route path='/' element={
+            <RequireAuth> 
+              <Route path='/home' element={<Home updateUser={updateUser} currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible}/>} />
+              {/* <Route path='/trips/*'> */}
+              <Route path='/trips/new' element={<AddTrip addtrip={addTrip} updateUser={updateUser} currentUser={currentUser} mountains={mountains}/>} />
+              <Route path='/trips/:id' element={<TripDetail currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} />} />
+              <Route path='/trips/:id/edit' element={<EditTrip currentUser={currentUser} isVisible={isVisible} setIsVisible={setIsVisible} mountains={mountains} />} />
+              {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
+            </RequireAuth>}
+          />
+        </Routes>   
+    
+          
+    
+  
     </>
   )
 }
 
-export default App
+function RequireAuth({ children }) {
+  let location = useLocation();
+
+  if (!currentUser) {
+    // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected. This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  return children;
+}
