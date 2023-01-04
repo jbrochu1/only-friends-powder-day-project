@@ -10,7 +10,7 @@ export default function TripDetail({currentUser, setIsVisible}) {
         trip_start: "2022-10-15T18:30:00.000Z",
         trip_end: "2022-10-15T18:30:00.000Z",
         comments: [],
-        mountains: [],
+        mountain: "",
         users: []
     })
     const [placeContents, setPlaceContents] = useState([])

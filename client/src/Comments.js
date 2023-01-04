@@ -20,7 +20,7 @@ export default function Comments({currentUser, trip}) {
     fetch('/comments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...formData, trip_id: trip.id, user_id: currentUser.id })
+      body: JSON.stringify({ ...formData, trip_id: trip.id, user_id: currentUser.id, date: new Date})
     })
       .then(res => {
         // console.log(currentUser)
