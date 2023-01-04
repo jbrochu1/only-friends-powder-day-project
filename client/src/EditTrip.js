@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import DateTimePicker from 'react-datetime-picker'
 
-export default function EditTrip({ currentUser, updateUser, mountains }) {
+export default function EditTrip({ currentUser, updateUser, mountains, updateTripOwner }) {
 
   const [tripStart, setTripStart] = useState(new Date)
   const [tripEnd, setTripEnd] = useState(new Date)
   const [mtnId, setMtnId] = useState({mountain_id: ''})
+  const [tripOwner, setTripOwner] = useState('')
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate
   const { id } = useParams();
@@ -19,6 +20,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
         setMtnId(Data.mountain_id);
         setTripStart(new Date(Data.trip_start));
         setTripEnd(new Date(Data.trip_end));
+        setTripOwner(Data.user_id);
       });
   }, []);
 
@@ -55,6 +57,8 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
       return (<option key={mtn.name} value={mtn.id}>{mtn.name}</option>)
     })
 
+    
+
   return (
     <>
         <div>
@@ -88,7 +92,7 @@ export default function EditTrip({ currentUser, updateUser, mountains }) {
                 </div>
                 
                 <div className='p-5'>
-                <input type='submit' value='Submit' className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'/>
+                {(currentUser.id === tripOwner ) ? (<input type='submit' value='Submit' className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'/>) : <div>You are not authorized to update this trip, must be the original creator</div> }
                 </div>
             </form>
             </div>

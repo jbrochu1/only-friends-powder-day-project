@@ -8,7 +8,6 @@ import AddTrip from './AddTrip';
 // import EditUser from './EditUser';
 import TripDetail from './TripDetail';
 import EditTrip from './EditTrip';
-import Signup from './Signup';
 import Welcome from './Welcome';
 
 
@@ -61,9 +60,7 @@ function App() {
   return (
     <>
     <Router>
-    
-
-    {currentUser ? (
+        {currentUser ? (
       <>
         <Nav updateUser={updateUser} currentUser={currentUser}/>
         <Routes>
@@ -78,12 +75,6 @@ function App() {
     )
     : (
       <>
-        {/* <Nav updateUser={updateUser} currentUser={currentUser}/> */}
-        {/* <Routes> */}
-          {/* <Route exact path='/welcome' element={<Welcome currentUser={currentUser} />}/> */}
-          {/* <Route exact path='/' element={<Login error={'please login or signup'} updateUser={updateUser}/>} /> */}
-          {/* <Route path='/users/new' element={<Signup updateUser={updateUser}/>} /> */}
-        {/* </Routes>  */}
         {<Login error={'please login or signup'} updateUser={updateUser}/>}  
       </>
     )}
