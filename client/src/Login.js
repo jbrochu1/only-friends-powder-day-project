@@ -8,6 +8,7 @@ function Login({ updateUser, error }) {
         // email: '',
         password: ''
     })
+    const [signupVisible, setSignupVisible] = useState(false)
     const [errors, setErrors] = useState([])
     const navigate = useNavigate()
 
@@ -49,6 +50,8 @@ function Login({ updateUser, error }) {
         setFormData({ ...formData, [name]: value })
     }
 
+    const handleClick = () => (setSignupVisible(!signupVisible))
+
     return (
         <>
         <div className='p-2 max-w-lg'>
@@ -79,9 +82,13 @@ function Login({ updateUser, error }) {
                     { error ? <div>{error}</div> : null }
                 </div>
                 <div>
-                    <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'><Link to='/users/new'>Signup</Link></button>
+                    <button onClick={handleClick} className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>Signup</button>
                 </div>
             
+        </div>
+        <div>
+            {signupVisible ? <Signup updateUser={updateUser}/> : null
+            }
         </div>
         </>
     )

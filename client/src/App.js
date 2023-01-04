@@ -78,12 +78,13 @@ function App() {
     )
     : (
       <>
-        <Nav updateUser={updateUser} currentUser={currentUser}/>
-        <Routes>
+        {/* <Nav updateUser={updateUser} currentUser={currentUser}/> */}
+        {/* <Routes> */}
           {/* <Route exact path='/welcome' element={<Welcome currentUser={currentUser} />}/> */}
-          <Route exact path='/' element={<Login error={'please login or signup'} updateUser={updateUser}/>} />
-          <Route path='/users/new' element={<Signup updateUser={updateUser}/>} />
-        </Routes> 
+          {/* <Route exact path='/' element={<Login error={'please login or signup'} updateUser={updateUser}/>} /> */}
+          {/* <Route path='/users/new' element={<Signup updateUser={updateUser}/>} /> */}
+        {/* </Routes>  */}
+        {<Login error={'please login or signup'} updateUser={updateUser}/>}  
       </>
     )}
     </Router>
