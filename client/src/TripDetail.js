@@ -21,7 +21,6 @@ export default function TripDetail({ currentUser, setIsVisible }) {
         age: 0,
         neighborhood: "",
         admin: false,
-
     }],
     user_trips: [{
         user_id: 0,
@@ -36,7 +35,6 @@ export default function TripDetail({ currentUser, setIsVisible }) {
             age: 0,
             neighborhood: "",
             admin: false,
-
         }
     }],
   });
@@ -50,7 +48,7 @@ export default function TripDetail({ currentUser, setIsVisible }) {
         setTrip(trip);
       });
   }, []);
-  
+
   return (
     <>
       <TripCard

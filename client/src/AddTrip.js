@@ -19,7 +19,7 @@ export default function AddTrip({
   const [tripEnd, setTripEnd] = useState(new Date());
   const [mtnId, setMtnId] = useState({ mountain_id: "" });
   const [errors, setErrors] = useState([]);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   // SETS FORMDATA FOR INPUT ELEMENTS BELOW
   const handleChange = (e) => {
@@ -42,7 +42,9 @@ export default function AddTrip({
         mountain_id: mtnId.mountain_id,
         user_id: currentUser.id,
       }),
-    }).then((res) => {
+    })
+    .then(navigate(`/`))
+    .then((res) => {
       if (res.ok) {
         res.json();
       } else {

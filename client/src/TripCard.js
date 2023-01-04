@@ -10,6 +10,8 @@ export default function TripCard({trip, currentUser, isVisible}) {
     const {id, user_id, trip_start, trip_end, mountain_id, users, mountain, user_trips} = trip
     const [errors, setErrors] = useState([])
     
+    const creatorIdMatch = users.find((user) => (user.id === user_id))
+
     function handleJoin() {
         fetch('/user_trips', {
           method: 'POST',
@@ -35,18 +37,20 @@ export default function TripCard({trip, currentUser, isVisible}) {
       }
 
         
-      
-      console.log(trip)
+      // console.log(creatorIdMatch)
+      // console.log(trip)
 
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl bg-cover">
           <div>
+            <div>Location: {mountain.name}</div>
             <img src={mountain.image}></img>
             <div>
-              <div>Creator: {user_id}</div>
               <div>Start: {format(new Date(trip_start), 'E MM/dd/yyyy')}</div>
               <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy')}</div>
-              <div>Location: {mountain.name}</div>
+              {/* <div>Creator: {users[0].username}</div> */}
+              <div>Creator: {creatorIdMatch.username}</div>
+
               <div>People Joining: <UserTripCard user_trips={user_trips} users={users} currentUser={currentUser}/> </div>
               <div>
                 <Comments key={trip.id} trip={trip} currentUser={currentUser} />

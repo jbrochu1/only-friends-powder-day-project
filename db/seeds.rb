@@ -23,7 +23,7 @@ t2 = Trip.create(user_id: u2.id, mountain_id: m2.id, trip_start: 'Thu Jan 05 202
 
 puts "Creating TEST UserTrips"
 ut1 = UserTrip.create(user_id: u1.id, trip_id: t1.id)
-ut2 = UserTrip.create(user_id: u1.id, trip_id: t2.id)
+ut2 = UserTrip.create(user_id: u2.id, trip_id: t2.id)
 
 # puts "Creating TEST MountainTrips"
 # mt1 = MountainTrip.create(mountain_id: m1.id, trip_id: t1.id)

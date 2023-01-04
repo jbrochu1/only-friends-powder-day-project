@@ -33,10 +33,9 @@ export default function Home({ currentUser, setIsVisible, isVisible }) {
             last_name: "",
             email: "",
             avatar: "",
-            age: "",
+            age: 0,
             neighborhood: "",
             admin: false,
-
         }
     }],
   }]);
