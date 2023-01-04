@@ -2,11 +2,12 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import Comments from "./Comments"
 import { format } from 'date-fns'
+import UserTripCard from "./UserTripCard"
 
 
 
 export default function TripCard({trip, currentUser, isVisible}) {
-    const {id, user_id, trip_start, trip_end, mountain_id, users, mountain} = trip
+    const {id, user_id, trip_start, trip_end, mountain_id, users, mountain, user_trips} = trip
     const [errors, setErrors] = useState([])
     
     function handleJoin() {
@@ -32,14 +33,10 @@ export default function TripCard({trip, currentUser, isVisible}) {
         })
         window.location.reload();
       }
-      
-      const usersInfo = users.map(userInfo => {
-        return (
-        <div key={userInfo.id}>
-          {userInfo.first_name}
-        </div>)
+
         
-      })
+      
+      console.log(trip)
 
     return (
         <div className="rounded-xl p-8 space-y-4 shadow-2xl bg-cover">
@@ -49,8 +46,8 @@ export default function TripCard({trip, currentUser, isVisible}) {
               <div>Creator: {user_id}</div>
               <div>Start: {format(new Date(trip_start), 'E MM/dd/yyyy')}</div>
               <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy')}</div>
-              <div>Location: {mountain_id}</div>
-              <div>People Joining: {usersInfo}</div>
+              <div>Location: {mountain.name}</div>
+              <div>People Joining: <UserTripCard user_trips={user_trips} users={users} currentUser={currentUser}/> </div>
               <div>
                 <Comments key={trip.id} trip={trip} currentUser={currentUser} />
                 {isVisible ? <Link to={`/trips/${trip.id}`}><button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'> See More Details!</button></Link> : null}

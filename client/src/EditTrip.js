@@ -4,16 +4,14 @@ import DateTimePicker from "react-datetime-picker";
 
 export default function EditTrip({
   currentUser,
-  updateUser,
   mountains,
-  updateTripOwner,
 }) {
   const [tripStart, setTripStart] = useState(new Date());
   const [tripEnd, setTripEnd] = useState(new Date());
-  const [mtnId, setMtnId] = useState({ mountain_id: "" });
-  const [tripOwner, setTripOwner] = useState("");
+  const [mtnId, setMtnId] = useState({ mountain_id: 0 });
+  const [tripOwner, setTripOwner] = useState(0);
   const [errors, setErrors] = useState([]);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const { id } = useParams();
 
   useEffect(() => {
@@ -43,19 +41,21 @@ export default function EditTrip({
         trip_end: tripEnd,
         mountain_id: mtnId.mountain_id,
       }),
-    }).then((res) => {
+      })
+      .then(navigate(`/`))
+      .then(res => {
       if (res.ok) {
-        res.json();
-        navigate("/");
+        
       } else {
         //Display errors
         res
           .json()
           .then((data) =>
             setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
-          );
+          )
       }
-    });
+    })
+    
   }
 
   const mtns = mountains.map((mtn) => {
@@ -85,6 +85,7 @@ export default function EditTrip({
                 onChange={handleChange}
                 className="w-2/3 float-right"
               >
+               <option>select one</option> 
                 {mtns}
               </select>
             </div>

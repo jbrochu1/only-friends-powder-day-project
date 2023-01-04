@@ -14,7 +14,7 @@ u2 = User.create(username: 'test2', password: '1234', email: 'email1@gmail.com',
 # m1 = Mountain.create(name: '', address: '', image: '', elevation: '', ski_pass: '', blackout_dates: '')
 puts "Creating TEST Mountains"
 m1 = Mountain.create(name: 'Vail', address: 'address 1', image: 'https://robbreport.com/wp-content/uploads/2018/11/edit-telluride_kristofer_noel_-_chair_9_dec_18_2016-21.jpg', elevation: 8000, ski_pass: 'abc', blackout_dates: '123')
-m2 = Mountain.create(name: 'Winter Park', address: 'address 2', image: 'abc', elevation: 9000, ski_pass: 'abc', blackout_dates: '123')
+m2 = Mountain.create(name: 'Winter Park', address: 'address 2', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Mary_Jane_base.JPG/640px-Mary_Jane_base.JPG', elevation: 9000, ski_pass: 'abc', blackout_dates: '123')
 
 # t1 = Trip.create(mountain_id: '', user_id: '', trip_start: '', trip_end: '')
 puts "Creating TEST Trips"

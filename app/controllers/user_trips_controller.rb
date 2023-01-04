@@ -17,7 +17,7 @@ class UserTripsController < ApplicationController
     end
 
     def destroy
-        usertrip = UserTrip.find(params[:id])
+        @user_trip.destroy
         head :no_content
     end 
 

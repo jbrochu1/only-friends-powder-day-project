@@ -4,13 +4,41 @@ import TripCard from "./TripCard";
 
 export default function TripDetail({ currentUser, setIsVisible }) {
   const [trip, setTrip] = useState({
-    user_id: "",
-    mountain_id: "",
+    id: 0,
+    user_id: 0,
+    mountain_id: 0,
     trip_start: "2022-10-15T18:30:00.000Z",
     trip_end: "2022-10-15T18:30:00.000Z",
     comments: [],
-    mountain: "",
-    users: [],
+    mountain: {},
+    users: [{
+        id: 0,
+        username: "",
+        first_name: "",
+        last_name: "",
+        email: "",
+        avatar: "",
+        age: 0,
+        neighborhood: "",
+        admin: false,
+
+    }],
+    user_trips: [{
+        user_id: 0,
+        trip_id: 0,
+        user: {
+            id: 0,
+            username: "",
+            first_name: "",
+            last_name: "",
+            email: "",
+            avatar: "",
+            age: 0,
+            neighborhood: "",
+            admin: false,
+
+        }
+    }],
   });
 
   const { id } = useParams();
@@ -22,8 +50,7 @@ export default function TripDetail({ currentUser, setIsVisible }) {
         setTrip(trip);
       });
   }, []);
-  // console.log('detail')
-  // console.log(trip)
+  
   return (
     <>
       <TripCard

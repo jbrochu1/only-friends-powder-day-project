@@ -4,4 +4,5 @@ class TripSerializer < ActiveModel::Serializer
   has_many :comments
   belongs_to :mountain
   has_many :users
+  has_many :user_trips
 end

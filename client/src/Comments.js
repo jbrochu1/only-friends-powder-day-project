@@ -26,10 +26,8 @@ export default function Comments({ currentUser, trip }) {
         date: new Date(),
       }),
     }).then((res) => {
-      // console.log(currentUser)
       if (res.ok) {
         res.json();
-        // .then((newComment) => { handleNewComment(newComment) })
       } else {
         res
           .json()
