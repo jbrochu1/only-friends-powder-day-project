@@ -64,7 +64,8 @@ export default function EditTrip({ currentUser, updateUser, mountains, updateTri
         <div>
             <p className='text-2xl p-3'>Edit Trip</p>
         </div>
-        <div className='p-2 max-w-lg'>
+
+        {(currentUser.id === tripOwner ) ? (<div className='p-2 max-w-lg'>
             { errors ? errors.map(e => <div>{e}</div>) : null}
             <form onSubmit={onSubmit} className='justify-center items-center'>
             <div className='p-2 space-x-2'>
@@ -92,10 +93,10 @@ export default function EditTrip({ currentUser, updateUser, mountains, updateTri
                 </div>
                 
                 <div className='p-5'>
-                {(currentUser.id === tripOwner ) ? (<input type='submit' value='Submit' className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'/>) : <div>You are not authorized to update this trip, must be the original creator</div> }
+                <input type='submit' value='Submit' className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'/>
                 </div>
             </form>
-            </div>
+            </div>) : <div>You are not authorized to update this trip, must be the original creator</div> }
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </>  
   );
