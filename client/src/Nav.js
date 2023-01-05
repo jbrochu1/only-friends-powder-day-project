@@ -17,7 +17,7 @@ export default function Nav({ updateUser, currentUser }) {
   };
 
   return (
-    <div className="columns-2">
+    <div className="columns-2 bg-neutral text-neutral-content">
       <div>
         <button
           className="btn btn-primary m-2"

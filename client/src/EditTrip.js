@@ -67,23 +67,23 @@ export default function EditTrip({
   });
 
   return (
-    <>
+    <div>
       <div>
         <p className="text-2xl p-3">Edit Trip</p>
       </div>
 
       {currentUser.id === tripOwner ? (
-        <div className="p-2 max-w-lg">
+        <div className="p-2">
           {errors ? errors.map((e) => <div>{e}</div>) : null}
           <form onSubmit={onSubmit} className="justify-center items-center">
             <div className="p-2 space-x-2">
               <label>Select Mountain</label>
-
+              <br></br>
               <select
                 name="mountain_id"
                 value={mtnId.mountain_id}
                 onChange={handleChange}
-                className="w-2/3 float-right"
+                className="select select-primary w-2/3 max-w-xs"
               >
                <option>select one</option> 
                 {mtns}
@@ -91,13 +91,15 @@ export default function EditTrip({
             </div>
             <div className="p-2 space-x-2">
               <label>Start Date</label>
+              <div>
               <DateTimePicker value={tripStart} onChange={setTripStart} />
-              {/* <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} /> */}
+              </div>
             </div>
             <div className="p-2 space-x-2">
               <label>End Date</label>
+              <div>
               <DateTimePicker value={tripEnd} onChange={setTripEnd} />
-              {/* <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} /> */}
+              </div>
             </div>
 
             <div className="p-5">
@@ -118,6 +120,6 @@ export default function EditTrip({
       {errors
         ? errors.map((e) => <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2>)
         : null}
-    </>
+    </div>
   );
 }

@@ -80,9 +80,11 @@ export default function TripCard({ trip, currentUser, isVisible }) {
         </div>
         <div>
           <Comments key={trip.id} trip={trip} currentUser={currentUser} />
+        </div>
+        <div>
           {isVisible ? (
             <Link to={`/trips/${trip.id}`}>
-              <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <button className="btn btn-primary">
                 {" "}
                 See More Details
               </button>
@@ -90,13 +92,13 @@ export default function TripCard({ trip, currentUser, isVisible }) {
           ) : null}
           <button
             onClick={handleJoin}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="btn btn-primary"
           >
             Join Trip
           </button>
           {currentUser.id === trip.user_id ? (
             <Link to={`/trips/${trip.id}/edit`}>
-              <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              <button className="btn btn-primary">
                 {" "}
                 Edit Trip
               </button>
@@ -105,7 +107,7 @@ export default function TripCard({ trip, currentUser, isVisible }) {
           {currentUser.id === trip.user_id ? (
             <button
               onClick={handleDelete}
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="btn btn-primary"
             >
               Delete
             </button>

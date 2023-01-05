@@ -3,18 +3,7 @@ import { useNavigate } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css";
 
-export default function AddTrip({
-  currentUser,
-  mountains,
-  updateUser,
-  addTrip,
-}) {
-  // const [tripData, setTripData] = useState({
-  //     // user_id: '',
-  //     trip_start: '',
-  //     trip_end: '',
-  //     mountain_id: ''
-  //   })
+export default function AddTrip({ currentUser, mountains }) {
   const [tripStart, setTripStart] = useState(new Date());
   const [tripEnd, setTripEnd] = useState(new Date());
   const [mtnId, setMtnId] = useState({ mountain_id: "" });
@@ -43,19 +32,21 @@ export default function AddTrip({
         user_id: currentUser.id,
       }),
     })
-    .then(navigate(`/`))
-    .then((res) => {
-      if (res.ok) {
-        res.json();
-      } else {
-        //Display errors
-        res
-          .json()
-          .then((data) =>
-            setErrors(Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`))
-          );
-      }
-    });
+      .then(navigate(`/`))
+      .then((res) => {
+        if (res.ok) {
+          res.json();
+        } else {
+          //Display errors
+          res
+            .json()
+            .then((data) =>
+              setErrors(
+                Object.entries(data.errors).map((e) => `${e[0]} ${e[1]}`)
+              )
+            );
+        }
+      });
   }
 
   const mtns = mountains.map((mtn) => {
@@ -67,37 +58,36 @@ export default function AddTrip({
   });
 
   return (
-    <>
+    <div>
       <div>
         <p className="text-2xl p-3">Add New Trip</p>
       </div>
-      <div className="p-2 max-w-lg">
+      <div className="p-2">
         {errors ? errors.map((e) => <div>{e}</div>) : null}
         <form onSubmit={onSubmit} className="justify-center items-center">
           <div className="p-2 space-x-2">
             <label>Select Mountain</label>
+            <br></br>
             <select
               name="mountain_id"
               value={mtnId.mountain_id}
               onChange={handleChange}
-              className="w-2/3 float-right"
+              className="select select-primary w-2/3 max-w-xs"
             >
               <option>select one</option>
               {mtns}
             </select>
           </div>
           <div className="p-2 space-x-2">
-            <label>Start Date</label>
-            <DateTimePicker value={tripStart} onChange={setTripStart} />
-
-            {/* <input type='text' name='trip_start' className='w-2/3 float-right' value={tripData.trip_start} onChange={handleChange} /> */}
+            <label className="">Start Date</label>
+            <div className="">
+              <DateTimePicker value={tripStart} onChange={setTripStart} />
+            </div>
           </div>
           <div className="p-2 space-x-2">
             <label>End Date</label>
-
             <div>
               <DateTimePicker value={tripEnd} onChange={setTripEnd} />
-              {/* <input type='text' name='trip_end' className='w-2/3 float-right' value={tripData.trip_end} onChange={handleChange} /> */}
             </div>
           </div>
 
@@ -113,6 +103,6 @@ export default function AddTrip({
       {errors
         ? errors.map((e) => <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2>)
         : null}
-    </>
+    </div>
   );
 }

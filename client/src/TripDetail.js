@@ -58,9 +58,20 @@ export default function TripDetail({ currentUser, setIsVisible }) {
         setIsVisible={setIsVisible}
       />
       </div>
-      <div className="">
-       {trip.mountain.name}
-       {trip.mountain.blackout_dates}
+      <div className="card bg-neutral text-neutral-content text-lg text-center">
+        <div></div>
+        <div>
+          Name: {trip.mountain.name}
+        </div>
+        <div>
+          Blackout Dates: {trip.mountain.blackout_dates}
+        </div>
+        <div>
+          Ski Pass: {trip.mountain.ski_pass}
+        </div>
+        <div>
+          Elevation: {trip.mountain.elevation}
+        </div>
       </div>
     </div>
   );
