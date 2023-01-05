@@ -8,7 +8,6 @@ export default function CommentList({
   userId,
   commentId,
 }) {
-  console.log(commentId)
   //  DELETES THE COMMENT
   const handleDelete = () => {
     fetch(`/comments/${commentId}`, {

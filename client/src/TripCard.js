@@ -81,7 +81,7 @@ export default function TripCard({ trip, currentUser, isVisible }) {
         <div>
           <Comments key={trip.id} trip={trip} currentUser={currentUser} />
         </div>
-        <div>
+        <div className="p-3 space-x-5">
           {isVisible ? (
             <Link to={`/trips/${trip.id}`}>
               <button className="btn btn-primary">
