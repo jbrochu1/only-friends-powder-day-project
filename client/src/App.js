@@ -18,7 +18,6 @@ function App() {
   const [mountains, setMountains] = useState([
     {
       name: "",
-      address: "",
       image: "",
       elevation: "",
       blackout_dates: "",
@@ -50,6 +49,8 @@ function App() {
   const addTrip = (newTrip) => setTrips((trips) => [...trips, newTrip]);
 
   if (errors) return <h1>{errors}</h1>;
+
+  
 
   return (
     <>

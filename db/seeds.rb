@@ -7,21 +7,23 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # u1 = User.create(username: '', password: '', email: '', admin: false, first_name: '', last_name: '', age: '', avatar: '', neighborhood: '')
-puts "Creating TEST Users...🫥"
-u1 = User.create(username: 'test', password: '1234', email: 'email@gmail.com', admin: false, first_name: 'test1f', last_name: 'test1l', age: 25, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Rino')
-u2 = User.create(username: 'test2', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'test2f', last_name: 'test2l', age: 25, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'LoHi')
+puts "Creating Users...🫥"
+u1 = User.create(username: 'Hana1', password: '1234', email: 'email@gmail.com', admin: false, first_name: 'Hana', last_name: 'Brochu', age: 6, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
+u2 = User.create(username: 'JuniperTrees', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'Juniper', last_name: 'Brochu', age: 4, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
+u3 = User.create(username: 'JSON', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'Jason', last_name: 'Brochu', age: 4, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
 
-# m1 = Mountain.create(name: '', address: '', image: '', elevation: '', ski_pass: '', blackout_dates: '')
-puts "Creating TEST Mountains"
-m1 = Mountain.create(name: 'Vail', address: 'address 1', image: 'https://robbreport.com/wp-content/uploads/2018/11/edit-telluride_kristofer_noel_-_chair_9_dec_18_2016-21.jpg', elevation: 8000, ski_pass: 'abc', blackout_dates: '123')
-m2 = Mountain.create(name: 'Winter Park', address: 'address 2', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Mary_Jane_base.JPG/640px-Mary_Jane_base.JPG', elevation: 9000, ski_pass: 'abc', blackout_dates: '123')
+# m1 = Mountain.create(name: '', image: '', elevation: '', ski_pass: '', blackout_dates: '')
+puts "Creating Mountains"
+m1 = Mountain.create(name: 'Vail', image: 'https://robbreport.com/wp-content/uploads/2018/11/edit-telluride_kristofer_noel_-_chair_9_dec_18_2016-21.jpg', elevation: 8000, ski_pass: 'abc', blackout_dates: '123')
+m2 = Mountain.create(name: 'Winter Park', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Mary_Jane_base.JPG/640px-Mary_Jane_base.JPG', elevation: 9000, ski_pass: 'abc', blackout_dates: '123')
+m3 = Mountain.create(name: 'Steamboat', image: 'https://mtn-resorts.com/external-assets/resort-town.jpg', elevation: 9000, ski_pass: 'abc', blackout_dates: '123')
 
 # t1 = Trip.create(mountain_id: '', user_id: '', trip_start: '', trip_end: '')
-puts "Creating TEST Trips"
+puts "Creating Trips"
 t1 = Trip.create(user_id: u1.id, mountain_id: m1.id, trip_start: 'Tue Jan 03 2023 11:00:00 GMT-0700 (Mountain Standard Time)', trip_end: 'Wed Jan 04 2023 11:00:00 GMT-0700 (Mountain Standard Time)')
 t2 = Trip.create(user_id: u2.id, mountain_id: m2.id, trip_start: 'Thu Jan 05 2023 11:00:00 GMT-0700 (Mountain Standard Time)', trip_end: 'Fri Jan 06 2023 11:00:00 GMT-0700 (Mountain Standard Time)')
 
-puts "Creating TEST UserTrips"
+puts "Creating UserTrips"
 ut1 = UserTrip.create(user_id: u1.id, trip_id: t1.id)
 ut2 = UserTrip.create(user_id: u2.id, trip_id: t2.id)
 
@@ -30,6 +32,6 @@ ut2 = UserTrip.create(user_id: u2.id, trip_id: t2.id)
 # mt2 = MountainTrip.create(mountain_id: m2.id, trip_id: t2.id)
 
 # c1 = Comment.create(trip_id: '', user_id: '', comment: '', date: '')
-puts "Creating TEST Comments"
-c1 = Comment.create(trip_id: 1, user_id: 1, comment: 'hello!', date: 'December 15, 2022 11:30')
-c2 = Comment.create(trip_id: 1, user_id: 1, comment: 'hello!', date: 'December 15, 2022 11:30')
+puts "Creating Comments"
+c1 = Comment.create(trip_id: 1, user_id: 1, comment: "I'm in!", date: 'December 15, 2022 11:30')
+c2 = Comment.create(trip_id: 1, user_id: 2n, comment: 'Hot Chocolate?', date: 'December 15, 2022 11:30')
