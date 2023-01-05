@@ -5,11 +5,10 @@ module.exports = {
   //   extend: {},
   // },
   plugins: [
-    require('@tailwindcss/forms'),
     require('daisyui'),
     // ...
   ],
   daisyui: {
-    themes: ['aqua'],
+    themes: ['winter'],
   }  
 }

@@ -56,29 +56,21 @@ function Login({ updateUser, error }) {
       <div className="p-2 max-w-lg">
         <form onSubmit={onSubmit}>
           <div className="p-2">
-            <label>Username</label>
             <input
               type="text"
               name="username"
-              className="input input-bordered input-primary w-full max-w-xs"
+              placeholder="username"
+              className="input input-bordered input-primary w-1/2"
               value={username}
               onChange={handleChange}
             />
           </div>
           <div className="p-2 space-x-2">
-            <label>
-              {/* Email
-                </label>
-                <input type='text' name='email' className='w-2/3 float-right' value={email} onChange={handleChange} />
-                </div>
-                <div className='p-2 space-x-2'>
-                <label> */}
-              Password
-            </label>
             <input
               type="password"
               name="password"
-              className="input input-bordered input-primary w-full max-w-xs"
+              placeholder="password"
+              className="input input-bordered input-primary w-1/2"
               value={password}
               onChange={handleChange}
             />
@@ -87,17 +79,17 @@ function Login({ updateUser, error }) {
             <input
               type="submit"
               value="Log In"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="btn btn-primary"
             />
           </div>
         </form>
-        <div>{error ? <div>{error}</div> : null}</div>
+        <div>{error ? <div className="alert alert-error shadow-lg p-2 m-3">{error}</div> : null}</div>
         <div>
           <button
             onClick={handleClick}
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="btn btn-primary"
           >
-            Signup
+            View Signup
           </button>
         </div>
       </div>

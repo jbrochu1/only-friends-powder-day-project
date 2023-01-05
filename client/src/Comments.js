@@ -52,7 +52,7 @@ export default function Comments({ currentUser, trip }) {
   });
 
   return (
-    <div className="rounded-xl p-8 space-y-4 shadow-2xl">
+    <div className="rounded-xl p-8 space-y-4 shadow-2xl w-1/2">
       <div>Comments: {commentList}</div>
 
       <div>
@@ -63,11 +63,13 @@ export default function Comments({ currentUser, trip }) {
             name="comment"
             value={formData.comment}
             onChange={handleChange}
+            className="input input-bordered input-primary w-full max-w-xs"
           />
           <input
             type="submit"
             value="Create"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            className="btn btn-primary"
+            // className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
           />
         </form>
         {errors
