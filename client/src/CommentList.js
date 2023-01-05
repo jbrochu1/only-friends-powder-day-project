@@ -17,11 +17,17 @@ export default function CommentList({
     window.location.reload();
   };
   return (
-    <div>
+    <div className="columns-2 p-2">
       <div>
-        {comment}
-        {username}
-        {format(new Date(datestamp), "E MM/dd/yyyy")}
+        <div>
+          {comment}
+        </div>
+        <div>
+          {username} - {format(new Date(datestamp), "E MM/dd/yyyy HH:mm aaa")}
+        </div>
+        <div>
+          
+        </div>
       </div>
       <div>
         {currentUser.id === userId ? (

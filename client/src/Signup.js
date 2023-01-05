@@ -71,6 +71,7 @@ export default function Signup({ updateUser }) {
   return (
     <>
       <div>
+      <div>
         <p className="text-2xl p-3">New User Sign Up</p>
       </div>
       <div className="p-2 max-w-lg">
@@ -80,7 +81,7 @@ export default function Signup({ updateUser }) {
             <input
               type="text"
               name="username"
-              className="w-2/3 float-right"
+              className="input input-bordered input-primary max-w-xs w-2/3 float-right"
               value={username}
               onChange={handleChange}
             />
@@ -173,6 +174,8 @@ export default function Signup({ updateUser }) {
         </div>
       </div>
       {errors ? errors.map((err) => <div>{err[0] + ": " + err[1]}</div>) : null}
+      </div>
     </>
+    
   );
 }

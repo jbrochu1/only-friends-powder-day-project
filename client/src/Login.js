@@ -60,7 +60,7 @@ function Login({ updateUser, error }) {
             <input
               type="text"
               name="username"
-              className=""
+              className="input input-bordered input-primary w-full max-w-xs"
               value={username}
               onChange={handleChange}
             />
@@ -78,7 +78,7 @@ function Login({ updateUser, error }) {
             <input
               type="password"
               name="password"
-              className=""
+              className="input input-bordered input-primary w-full max-w-xs"
               value={password}
               onChange={handleChange}
             />

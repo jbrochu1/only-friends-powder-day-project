@@ -46,8 +46,8 @@ export default function TripCard({trip, currentUser, isVisible}) {
             <div>Location: {mountain.name}</div>
             <img src={mountain.image}></img>
             <div>
-              <div>Start: {format(new Date(trip_start), 'E MM/dd/yyyy')}</div>
-              <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy')}</div>
+              <div>Start: {format(new Date(trip_start), 'E MM/dd/yyyy HH:mm aaa')}</div>
+              <div>End: {format(new Date(trip_end), 'E MM/dd/yyyy HH:mm aaa')}</div>
               {/* <div>Creator: {users[0].username}</div> */}
               <div>Creator: {creatorIdMatch.username}</div>
 
