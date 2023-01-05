@@ -67,10 +67,8 @@ export default function TripCard({ trip, currentUser, isVisible }) {
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
           <div className="text-2xl">Creator: {creatorIdMatch.username}</div>
 
-          <div
-          // className="rounded-xl p-8 space-y-4 shadow-2xl"
-          >
-            People Joining:
+          <div>
+            <div className="text-xl">People Joining:</div>
             <UserTripCard
               user_trips={user_trips}
               users={users}
@@ -107,7 +105,7 @@ export default function TripCard({ trip, currentUser, isVisible }) {
           {currentUser.id === trip.user_id ? (
             <button
               onClick={handleDelete}
-              className="btn btn-primary"
+              className="btn btn-accent"
             >
               Delete
             </button>
