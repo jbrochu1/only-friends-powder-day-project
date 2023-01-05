@@ -8,9 +8,10 @@ export default function CommentList({
   userId,
   commentId,
 }) {
+  console.log(commentId)
   //  DELETES THE COMMENT
   const handleDelete = () => {
-    fetch(`comments/${commentId}`, {
+    fetch(`/comments/${commentId}`, {
       method: "DELETE",
     });
     // onDeleteContent()
@@ -23,7 +24,7 @@ export default function CommentList({
           {comment}
         </div>
         <div>
-          {username} - {format(new Date(datestamp), "E MM/dd/yyyy HH:mm aaa")}
+          {username} - {format(new Date(datestamp), "E MM/dd/yyyy hh:mm aaa")}
         </div>
         <div>
           

@@ -48,25 +48,20 @@ export default function TripCard({ trip, currentUser, isVisible }) {
   // console.log(trip)
 
   return (
-    // <div
-    // className="rounded-xl p-8 space-y-4 shadow-2xl bg-cover"
-    // className="card w-96 bg-base-100 shadow-xl image-full"
-    // >
     <div className="card rounded-xl p-8 space-y-4 shadow-2xl bg-base-100 image-full">
       <figure>
         <img src={mountain.image} alt={mountain.name}></img>
       </figure>
       <div className="card-body">
         <div className="card-title">Location: {mountain.name}</div>
-
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
           <div className="text-2xl">
             When:
           </div>
           <div>
-            Start: {format(new Date(trip_start), "E MM/dd/yyyy HH:mm aaa")}
+            Start: {format(new Date(trip_start), "E MM/dd/yyyy hh:mm aaa")}
           </div>
-          <div>End: {format(new Date(trip_end), "E MM/dd/yyyy HH:mm aaa")}</div>
+          <div>End: {format(new Date(trip_end), "E MM/dd/yyyy hh:mm aaa")}</div>
           {/* <div>Creator: {users[0].username}</div> */}
         </div>
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">

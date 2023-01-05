@@ -40,7 +40,7 @@ export default function TripDetail({ currentUser, setIsVisible }) {
   });
 
   const { id } = useParams();
-
+  console.log(trip)
   useEffect(() => {
     fetch(`/trips/${id}`)
       .then((r) => r.json())
@@ -50,12 +50,18 @@ export default function TripDetail({ currentUser, setIsVisible }) {
   }, []);
 
   return (
-    <>
+    <div className="columns-2">
+      <div className="">
       <TripCard
         trip={trip}
         currentUser={currentUser}
         setIsVisible={setIsVisible}
       />
-    </>
+      </div>
+      <div className="">
+       {trip.mountain.name}
+       {trip.mountain.blackout_dates}
+      </div>
+    </div>
   );
 }

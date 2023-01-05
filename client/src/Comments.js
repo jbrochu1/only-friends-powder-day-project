@@ -52,18 +52,18 @@ export default function Comments({ currentUser, trip }) {
   });
 
   return (
-    <div className="rounded-xl p-8 space-y-4 shadow-2xl w-1/2">
+    <div className="rounded-xl p-8 space-y-4 shadow-2xl w-2/3">
       <div>Comments: {commentList}</div>
 
       <div>
         <form onSubmit={onSubmit}>
-          <label>Enter Comment: </label>
           <input
             type="text"
             name="comment"
+            placeholder="enter comment"
             value={formData.comment}
             onChange={handleChange}
-            className="input input-bordered input-primary w-full max-w-xs"
+            className="input input-bordered input-primary w-1/2"
           />
           <input
             type="submit"

@@ -23,7 +23,7 @@ export default function TripsList({
   return (
     <div 
       // className="rounded-xl p-8 space-y-4 shadow-2xl bg-cover"
-      className="auto-rows-min"
+      className=""
       >
       {tripCard}
     </div>
