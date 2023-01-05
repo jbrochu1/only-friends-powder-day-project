@@ -20,8 +20,8 @@ export default function UserTripCard({ users, user_trips, currentUser }) {
   const usersInfo = users.map((user) => {
     // console.log(user.id);
     return (
-      <div key={user.id}>
-        {user.first_name}
+      <div key={user.id} >
+          {user.username} {'('} {user.first_name}  {user.last_name} {')'}
 
         {currentUser.id === user.id ? (
           <button

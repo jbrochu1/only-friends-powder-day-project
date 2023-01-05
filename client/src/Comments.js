@@ -52,7 +52,7 @@ export default function Comments({ currentUser, trip }) {
   });
 
   return (
-    <div>
+    <div className="rounded-xl p-8 space-y-4 shadow-2xl">
       <div>Comments: {commentList}</div>
 
       <div>
