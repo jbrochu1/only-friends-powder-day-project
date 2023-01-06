@@ -53,47 +53,70 @@ function Login({ updateUser, error }) {
 
   return (
     <>
-      <div className="p-2 max-w-lg">
-        <form onSubmit={onSubmit}>
-          <div className="p-2">
-            <input
-              type="text"
-              name="username"
-              placeholder="username"
-              className="input input-bordered input-primary w-1/2"
-              value={username}
-              onChange={handleChange}
-            />
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage: `url("https://bluebirdbackcountry.com/wp-content/uploads/2021/03/5H2A4135-Edit-1024x683.jpg")`,
+        }}
+      >
+        <div className="hero-overlay bg-opacity-60"></div>
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">
+              No Friends on Powder Day!
+            </h1>
+            <p className="mb-5">
+              Don't leave your friends behind on powder day (or any other day you might hit the slopes!)
+            </p>
+            <div className="p-2 max-w-lg">
+              <form onSubmit={onSubmit}>
+                <div className="p-2">
+                  <input
+                    type="text"
+                    name="username"
+                    placeholder="username"
+                    className="input input-bordered input-primary w-1/2 text-neutral"
+                    value={username}
+                    onChange={handleChange}hh
+                  />
+                </div>
+                <div className="p-2 space-x-2">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered input-primary w-1/2 text-neutral"
+                    value={password}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="p-2 space-x-2">
+                  <input
+                    type="submit"
+                    value="Log In"
+                    className="btn btn-primary"
+                  />
+                </div>
+              </form>
+              <div>
+                {error ? (
+                  <div className="alert alert-error shadow-lg p-2 m-3">
+                    {error}
+                  </div>
+                ) : null}
+              </div>
+              <div>
+                <button onClick={handleClick} className="btn btn-primary">
+                  View Signup
+                </button>
+              </div>
+            </div>
+            <div>
+              {signupVisible ? <Signup updateUser={updateUser} /> : null}
+            </div>
           </div>
-          <div className="p-2 space-x-2">
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              className="input input-bordered input-primary w-1/2"
-              value={password}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="p-2 space-x-2">
-            <input
-              type="submit"
-              value="Log In"
-              className="btn btn-primary"
-            />
-          </div>
-        </form>
-        <div>{error ? <div className="alert alert-error shadow-lg p-2 m-3">{error}</div> : null}</div>
-        <div>
-          <button
-            onClick={handleClick}
-            className="btn btn-primary"
-          >
-            View Signup
-          </button>
         </div>
       </div>
-      <div>{signupVisible ? <Signup updateUser={updateUser} /> : null}</div>
     </>
   );
 }

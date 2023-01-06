@@ -82,7 +82,7 @@ export default function Signup({ updateUser }) {
                   type="text"
                   name="username"
                   placeholder="username"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={username}
                   onChange={handleChange}
                 />
@@ -92,7 +92,7 @@ export default function Signup({ updateUser }) {
                   type="password"
                   name="password"
                   placeholder="password"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={password}
                   onChange={handleChange}
                 />
@@ -102,7 +102,7 @@ export default function Signup({ updateUser }) {
                   type="text"
                   name="email"
                   placeholder="email"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={email}
                   onChange={handleChange}
                 />
@@ -112,7 +112,7 @@ export default function Signup({ updateUser }) {
                   type="text"
                   name="first_name"
                   placeholder="first name"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={first_name}
                   onChange={handleChange}
                 />
@@ -122,7 +122,7 @@ export default function Signup({ updateUser }) {
                   type="text"
                   name="last_name"
                   placeholder="last name"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={last_name}
                   onChange={handleChange}
                 />
@@ -132,7 +132,7 @@ export default function Signup({ updateUser }) {
                   type="text"
                   name="neighborhood"
                   placeholder="neighborhood"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={neighborhood}
                   onChange={handleChange}
                 />
@@ -142,7 +142,7 @@ export default function Signup({ updateUser }) {
                   type="text"
                   name="age"
                   placeholder="age"
-                  className="input input-bordered input-primary w-1/2"
+                  className="input input-bordered input-primary w-1/2 text-neutral"
                   value={age}
                   onChange={handleChange}
                 />

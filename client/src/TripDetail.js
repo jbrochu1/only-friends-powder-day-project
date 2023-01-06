@@ -53,7 +53,7 @@ export default function TripDetail({ currentUser, setIsVisible }) {
     <div className="my-10">
       
       <div className="card bg-primary/80 text-primary-content text-xl text-center p-5">
-        <div></div>
+        <div className="text-4xl text-bold">Mountain Info</div>
         <div>
           Name: {trip.mountain.name}
         </div>

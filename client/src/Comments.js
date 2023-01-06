@@ -63,7 +63,7 @@ export default function Comments({ currentUser, trip }) {
             placeholder="enter comment"
             value={formData.comment}
             onChange={handleChange}
-            className="input input-bordered input-primary w-1/2 mx-3"
+            className="input input-bordered input-primary w-1/2 mx-3 text-neutral"
           />
           <input
             type="submit"
