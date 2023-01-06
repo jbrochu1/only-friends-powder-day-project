@@ -53,7 +53,7 @@ export default function TripCard({ trip, currentUser, isVisible }) {
         <img src={mountain.image} alt={mountain.name}></img>
       </figure>
       <div className="card-body">
-        <div className="card-title">Location: {mountain.name}</div>
+        <div className="card-title text-2xl">Location: {mountain.name}</div>
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
           <div className="text-2xl">
             When:

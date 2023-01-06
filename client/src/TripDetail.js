@@ -11,7 +11,8 @@ export default function TripDetail({ currentUser, setIsVisible }) {
     trip_end: "2022-10-15T18:30:00.000Z",
     comments: [],
     mountain: {},
-    users: [{
+    users: [
+      {
         id: 0,
         username: "",
         first_name: "",
@@ -21,26 +22,29 @@ export default function TripDetail({ currentUser, setIsVisible }) {
         age: 0,
         neighborhood: "",
         admin: false,
-    }],
-    user_trips: [{
+      },
+    ],
+    user_trips: [
+      {
         user_id: 0,
         trip_id: 0,
         user: {
-            id: 0,
-            username: "",
-            first_name: "",
-            last_name: "",
-            email: "",
-            avatar: "",
-            age: 0,
-            neighborhood: "",
-            admin: false,
-        }
-    }],
+          id: 0,
+          username: "",
+          first_name: "",
+          last_name: "",
+          email: "",
+          avatar: "",
+          age: 0,
+          neighborhood: "",
+          admin: false,
+        },
+      },
+    ],
   });
 
   const { id } = useParams();
-  console.log(trip)
+  console.log(trip);
   useEffect(() => {
     fetch(`/trips/${id}`)
       .then((r) => r.json())
@@ -51,28 +55,19 @@ export default function TripDetail({ currentUser, setIsVisible }) {
 
   return (
     <div className="my-10">
-      
       <div className="card bg-primary/80 text-primary-content text-xl text-center p-5">
         <div className="text-4xl text-bold">Mountain Info</div>
-        <div>
-          Name: {trip.mountain.name}
-        </div>
-        <div>
-          Blackout Dates: {trip.mountain.blackout_dates}
-        </div>
-        <div>
-          Ski Pass: {trip.mountain.ski_pass}
-        </div>
-        <div>
-          Elevation: {trip.mountain.elevation}
-        </div>
+        <div>Name: {trip.mountain.name}</div>
+        <div>Ski Pass: {trip.mountain.ski_pass}</div>
+        <div>Elevation: {trip.mountain.elevation}</div>
+        <div>Blackout Dates: {trip.mountain.blackout_dates}</div>
       </div>
       <div className="">
-      <TripCard
-        trip={trip}
-        currentUser={currentUser}
-        setIsVisible={setIsVisible}
-      />
+        <TripCard
+          trip={trip}
+          currentUser={currentUser}
+          setIsVisible={setIsVisible}
+        />
       </div>
     </div>
   );

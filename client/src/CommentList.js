@@ -18,18 +18,14 @@ export default function CommentList({
   };
   return (
     <div className="columns-2 p-2">
-      <div>
+      <div className="">
         <div>
           {comment}
-        </div>
-        <div>
+          <br></br>
           {username} - {format(new Date(datestamp), "E MM/dd/yyyy hh:mm aaa")}
         </div>
-        <div>
-          
-        </div>
       </div>
-      <div>
+      <div className="">
         {currentUser.id === userId ? (
           <>
             <button
