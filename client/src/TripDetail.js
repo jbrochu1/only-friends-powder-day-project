@@ -50,15 +50,9 @@ export default function TripDetail({ currentUser, setIsVisible }) {
   }, []);
 
   return (
-    <div className="columns-2">
-      <div className="">
-      <TripCard
-        trip={trip}
-        currentUser={currentUser}
-        setIsVisible={setIsVisible}
-      />
-      </div>
-      <div className="card bg-neutral text-neutral-content text-lg text-center">
+    <div className="my-10">
+      
+      <div className="card bg-primary/80 text-primary-content text-xl text-center p-5">
         <div></div>
         <div>
           Name: {trip.mountain.name}
@@ -72,6 +66,13 @@ export default function TripDetail({ currentUser, setIsVisible }) {
         <div>
           Elevation: {trip.mountain.elevation}
         </div>
+      </div>
+      <div className="">
+      <TripCard
+        trip={trip}
+        currentUser={currentUser}
+        setIsVisible={setIsVisible}
+      />
       </div>
     </div>
   );
