@@ -16,12 +16,12 @@ u5 = User.create(username: 'babyshark', password: '1234', email: 'email1@gmail.c
 
 # m1 = Mountain.create(name: '', image: '', elevation: '', ski_pass: '', blackout_dates: '')
 puts "Creating Mountains"
-m1 = Mountain.create(name: 'Vail', image: 'https://robbreport.com/wp-content/uploads/2018/11/edit-telluride_kristofer_noel_-_chair_9_dec_18_2016-21.jpg', elevation: 11570, ski_pass: 'epic', blackout_dates: 'Coming soon!')
+m1 = Mountain.create(name: 'Vail', image: 'https://vtskiandride.com/wp-content/uploads/2020/10/AdobeStock_93918738-scaled.jpeg', elevation: 11570, ski_pass: 'epic', blackout_dates: 'Coming soon!')
 m2 = Mountain.create(name: 'Winter Park', image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Mary_Jane_base.JPG/640px-Mary_Jane_base.JPG', elevation: 12600, ski_pass: 'ikon', blackout_dates: 'Coming soon!')
 m3 = Mountain.create(name: 'Steamboat', image: 'https://mtn-resorts.com/external-assets/resort-town.jpg', elevation: 10568, ski_pass: 'ikon', blackout_dates: 'Coming soon!')
-m4 = Mountain.create(name: 'Breckenridge', image: 'https://mtn-resorts.com/external-assets/resort-town.jpg', elevation: 12998, ski_pass: 'epic', blackout_dates: 'Coming soon!')
-m5 = Mountain.create(name: 'Beaver Creek', image: 'https://mtn-resorts.com/external-assets/resort-town.jpg', elevation: 11440, ski_pass: 'epic', blackout_dates: 'Coming soon!')
-m6 = Mountain.create(name: 'Copper Mountain', image: 'https://mtn-resorts.com/external-assets/resort-town.jpg', elevation: 12313, ski_pass: 'ikon', blackout_dates: 'Coming soon!')
+m4 = Mountain.create(name: 'Breckenridge', image: 'https://brecknetwork.com/wp-content/uploads/2018/03/VailResorts_BRK6964_Jack_Affleck_HighRes-1.jpg', elevation: 12998, ski_pass: 'epic', blackout_dates: 'Coming soon!')
+m5 = Mountain.create(name: 'Beaver Creek', image: 'https://www.skisync.com/hubfs/Resort_Images/beaver-creek-5.jpg', elevation: 11440, ski_pass: 'epic', blackout_dates: 'Coming soon!')
+m6 = Mountain.create(name: 'Copper Mountain', image: 'https://cms.coppercolorado.com/sites/copper/files/inline-images/IMG_9765.jpg', elevation: 12313, ski_pass: 'ikon', blackout_dates: 'Coming soon!')
 
 # t1 = Trip.create(mountain_id: '', user_id: '', trip_start: '', trip_end: '')
 puts "Creating Trips"

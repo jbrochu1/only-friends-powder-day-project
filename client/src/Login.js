@@ -63,7 +63,8 @@ function Login({ updateUser, error }) {
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">
-              No Friends on Powder Day!
+              
+              Only Friends on Powder Day!
             </h1>
             <p className="mb-5">
               Don't leave your friends behind on powder day (or any other day you might hit the slopes!)
