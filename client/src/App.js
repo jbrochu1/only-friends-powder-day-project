@@ -9,6 +9,7 @@ import AddTrip from "./AddTrip";
 import TripDetail from "./TripDetail";
 import EditTrip from "./EditTrip";
 import Welcome from "./Welcome";
+import EditUser from "./EditUser";
 
 function App() {
   const [trips, setTrips] = useState([]);
@@ -50,8 +51,6 @@ function App() {
 
   if (errors) return <h1>{errors}</h1>;
 
-  
-
   return (
     <>
       <Router>
@@ -82,7 +81,10 @@ function App() {
                   />
                 }
               />
-              {/* <Route path='/users/:id' element={<EditUser currentUser={currentUser} />} /> */}
+              <Route
+                path="/users/:id"
+                element={<EditUser currentUser={currentUser} />}
+              />
               <Route
                 path="/trips/:id"
                 element={

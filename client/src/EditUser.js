@@ -39,6 +39,7 @@ export default function EditUser() {
     
     return (
         <>
+        <h1>This Feature Is Coming Soon!</h1>
 {/* //         <div>
 //             <p className='text-2xl p-3'>Edit Profile</p>
 //         </div>

@@ -78,7 +78,7 @@ function Login({ updateUser, error }) {
                     placeholder="username"
                     className="input input-bordered input-primary w-1/2 text-neutral"
                     value={username}
-                    onChange={handleChange}hh
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="p-2 space-x-2">
