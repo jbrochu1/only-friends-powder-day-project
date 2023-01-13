@@ -44,7 +44,7 @@ export default function Nav({ updateUser, currentUser }) {
           <div></div>
         </div>
       </div> */}
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-primary text-primary-content">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost">
@@ -65,70 +65,53 @@ export default function Nav({ updateUser, currentUser }) {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-primary/75 rounded-box w-52"
             >
               <li>
-                <Link to="/trips/new">Add Trip</Link>
-              </li>
-              <li>
-                <Link to="/users/:id">Edit Profile</Link>
+                <button className="btn btn-ghost normal-case">
+                  <Link to="/trips/new">Add Trip</Link>
+                </button>
               </li>
             </ul>
           </div>
         </div>
         <div className="navbar-center">
-          <Link to="/">PowderDay</Link>
+          <button className="btn btn-ghost normal-case text-xl">
+            <Link to="/">PowderDay</Link>
+          </button>
         </div>
         <div className="navbar-end">
           <div className="dropdown dropdown-end">
-            {/* FOR FUTURE - ADD AVATAR HERE */}
+            {/* FOR FUTURE - ADD AVATAR HERE AND SWAP WITH LABEL BELOW */}
             {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img src="https://placeimg.com/80/80/people" />
               </div>
             </label> */}
-            <label tabIndex={0} className="btn btn-ghost">{currentUser.username}</label>
+            <label tabIndex={0} className="btn btn-ghost">
+              {currentUser.username}
+            </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-primary/75 rounded-box w-52"
             >
               <li>
                 <button className="btn btn-ghost normal-case">
-              <Link to="/users/:id">Edit Profile</Link>
-              </button> 
+                  <Link to="/users/:id">Edit Profile</Link>
+                </button>
               </li>
               <li>
-              <button
-              className="btn btn-ghost normal-case"
-              onClick={handleLogOut}
-            >
-              Log Out
-            </button>
+                <button
+                  className="btn btn-ghost normal-case"
+                  onClick={handleLogOut}
+                >
+                  Log Out
+                </button>
               </li>
-              <li>
-              
-              </li>
+              <li></li>
             </ul>
           </div>
         </div>
-        {/* <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link to="/trips/new">Add Trip</Link>
-            </li>
-            <li>
-              <Link to="/users/:id">Edit Profile</Link>
-            </li>
-          </ul> */}
-
-        {/* <div className="navbar-end"> */}
-
-        {/* <div>{currentUser.username}</div> */}
-        {/* <button
-              className="btn btn-ghost normal-case text-xl"
-              onClick={handleLogOut}
-            >
-              Log Out
-            </button> */}
       </div>
     </div>
   );
