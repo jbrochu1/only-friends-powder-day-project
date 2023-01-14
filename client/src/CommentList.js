@@ -17,26 +17,21 @@ export default function CommentList({
     window.location.reload();
   };
   return (
-    <div className="columns-2 p-2">
-      <div className="">
-        <div>
-          {comment}
-          <br></br>
-          {username} - {format(new Date(datestamp), "E MM/dd/yyyy hh:mm aaa")}
-        </div>
-      </div>
-      <div className="">
+    <div className="chat-start">
+      <div className="chat-bubble chat-bubble-secondary p-2">
         {currentUser.id === userId ? (
-          <>
-            <button
-              onClick={handleDelete}
-              className="btn btn-accent btn-sm"
-              // className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
+          <div className="flex justify-center">
+            <button onClick={handleDelete} className="btn btn-accent btn-xs">
               Delete
             </button>
-          </>
+          </div>
         ) : null}
+        {comment}
+        <br></br>
+        {username}
+        <br></br>
+        {format(new Date(datestamp), "E MM/dd/yyyy hh:mm aaa")}
+        <br></br>
       </div>
     </div>
   );

@@ -65,10 +65,38 @@ export default function TripCard({ trip, currentUser, isVisible }) {
           {/* <div>Creator: {users[0].username}</div> */}
         </div>
         <div className="rounded-xl p-8 space-y-4 shadow-2xl">
-          <div className="text-2xl">Creator: {creatorIdMatch.username}</div>
+          <div className="text-2xl">
+            Creator: {creatorIdMatch.username}
+            </div>
+            <div className="space-x-2">
+            {currentUser.id === trip.user_id ? (
+            <Link to={`/trips/${trip.id}/edit`}>
+              <button className="btn btn-primary btn-xs">
+                {" "}
+                Edit Trip
+              </button>
+            </Link>
+          ) : null}
+          {currentUser.id === trip.user_id ? (
+            <button
+              onClick={handleDelete}
+              className="btn btn-accent btn-xs"
+            >
+              Delete
+            </button>
+          ) : null}
+          </div>  
 
           <div>
-            <div className="text-xl">People Joining:</div>
+            <div className="flex text-xl space-x-2">
+              <div>People Joining:</div>
+              <div><button
+            onClick={handleJoin}
+            className="btn btn-primary btn-sm"
+          >
+            Join Trip
+          </button></div>
+            </div>
             <UserTripCard
               user_trips={user_trips}
               users={users}
@@ -84,32 +112,33 @@ export default function TripCard({ trip, currentUser, isVisible }) {
             <Link to={`/trips/${trip.id}`}>
               <button className="btn btn-primary">
                 {" "}
-                See More Details
+                More Info
               </button>
             </Link>
           ) : null}
-          <button
+          {/* MOVED JOIN AND EDIT BUTTON UP ON PAGE */}
+          {/* <button
             onClick={handleJoin}
             className="btn btn-primary"
           >
             Join Trip
-          </button>
-          {currentUser.id === trip.user_id ? (
+          </button> */}
+          {/* {currentUser.id === trip.user_id ? (
             <Link to={`/trips/${trip.id}/edit`}>
               <button className="btn btn-primary">
                 {" "}
                 Edit Trip
               </button>
             </Link>
-          ) : null}
-          {currentUser.id === trip.user_id ? (
+          ) : null} */}
+          {/* {currentUser.id === trip.user_id ? (
             <button
               onClick={handleDelete}
               className="btn btn-accent"
             >
               Delete
             </button>
-          ) : null}
+          ) : null} */}
           {errors
             ? errors.map((e) => (
                 <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2>

@@ -20,12 +20,12 @@ export default function UserTripCard({ users, user_trips, currentUser }) {
   const usersInfo = users.map((user) => {
     return (
       <div key={user.id} className="my-3">
-          {user.username} {'('} {user.first_name}  {user.last_name} {')'}
+          {user.username} {'('}{user.first_name}  {user.last_name}{')'}
 
         {currentUser.id === user.id ? (
           <button
             onClick={handleUnjoin}
-            className="btn btn-accent btn-sm ml-5"
+            className="btn btn-accent btn-xs ml-5"
           >
             Unjoin
           </button>
