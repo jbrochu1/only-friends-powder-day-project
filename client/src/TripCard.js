@@ -80,7 +80,7 @@ export default function TripCard({ trip, currentUser, isVisible }) {
           {currentUser.id === trip.user_id ? (
             <button
               onClick={handleDelete}
-              className="btn btn-accent btn-xs"
+              className="btn btn-error btn-xs"
             >
               Delete
             </button>
@@ -92,7 +92,7 @@ export default function TripCard({ trip, currentUser, isVisible }) {
               <div>People Joining:</div>
               <div><button
             onClick={handleJoin}
-            className="btn btn-primary btn-sm"
+            className="btn btn-primary btn-xs"
           >
             Join Trip
           </button></div>

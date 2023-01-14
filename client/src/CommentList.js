@@ -18,10 +18,10 @@ export default function CommentList({
   };
   return (
     <div className="chat-start">
-      <div className="chat-bubble chat-bubble-secondary p-2">
+      <div className="chat-bubble chat-bubble-primary p-2">
         {currentUser.id === userId ? (
           <div className="flex justify-center">
-            <button onClick={handleDelete} className="btn btn-accent btn-xs">
+            <button onClick={handleDelete} className="btn btn-error btn-xs">
               Delete
             </button>
           </div>
