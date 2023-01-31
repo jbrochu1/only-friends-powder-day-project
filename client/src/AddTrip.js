@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
 import "react-datetime-picker/dist/DateTimePicker.css";
 
-export default function AddTrip({ currentUser, mountains }) {
+export default function AddTrip({ currentUser, mountains, setMountains }) {
   const [tripStart, setTripStart] = useState(new Date());
   const [tripEnd, setTripEnd] = useState(new Date());
   const [mtnId, setMtnId] = useState({ mountain_id: "" });
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+  fetch("/mountains").then((res) => {
+    if (res.ok) {
+      res.json().then((mtns) => {
+        setMountains(mtns);
+      });
+    }
+  });
+}, []);
+  
   // SETS FORMDATA FOR INPUT ELEMENTS BELOW
   const handleChange = (e) => {
     // e.preventDefault()
@@ -48,7 +58,7 @@ export default function AddTrip({ currentUser, mountains }) {
         }
       });
   }
-
+  console.log(mountains)
   const mtns = mountains.map((mtn) => {
     return (
       <option key={mtn.name} value={mtn.id}>

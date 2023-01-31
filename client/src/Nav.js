@@ -100,6 +100,11 @@ export default function Nav({ updateUser, currentUser }) {
                   <Link to="/users/:id">Edit Profile</Link>
                 </button>
               </li>
+              {currentUser.admin ? (<li>
+                <button className="btn btn-ghost normal-case">
+                  <Link to="/mountains/new">Add Mountain</Link>
+                </button>
+              </li>) : null}
               <li>
                 <button
                   className="btn btn-ghost normal-case"

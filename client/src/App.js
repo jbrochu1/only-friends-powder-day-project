@@ -10,6 +10,7 @@ import TripDetail from "./TripDetail";
 import EditTrip from "./EditTrip";
 import Welcome from "./Welcome";
 import EditUser from "./EditUser";
+import AddMountain from "./AddMountain";
 
 function App() {
   const [trips, setTrips] = useState([]);
@@ -49,6 +50,8 @@ function App() {
   // HANDLER FUNCTION TO POST NEW PLACE
   const addTrip = (newTrip) => setTrips((trips) => [...trips, newTrip]);
 
+  const addMtn = (newMtn) => setMountains((mountains) => [...mountains, newMtn]);
+
   if (errors) return <h1>{errors}</h1>;
 
   return (
@@ -78,6 +81,7 @@ function App() {
                     updateUser={updateUser}
                     currentUser={currentUser}
                     mountains={mountains}
+                    setMountains={setMountains}
                   />
                 }
               />
@@ -103,6 +107,16 @@ function App() {
                     isVisible={isVisible}
                     setIsVisible={setIsVisible}
                     mountains={mountains}
+                    setMountains={setMountains}
+                  />
+                }
+              />
+              <Route
+                path="/mountains/new"
+                element={
+                  <AddMountain
+                    currentUser={currentUser}
+                    addMtn={addMtn}
                   />
                 }
               />

@@ -10,7 +10,7 @@
 puts "Creating Users...🫥"
 u1 = User.create(username: 'Hana1', password: '1234', email: 'email@gmail.com', admin: false, first_name: 'Hana', last_name: 'Brochu', age: 6, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
 u2 = User.create(username: 'JuniperTrees', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'Juniper', last_name: 'Brochu', age: 4, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
-u3 = User.create(username: 'JSON', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'Jason', last_name: 'Brochu', age: 38, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
+u3 = User.create(username: 'JSON', password: 'Kiddles', email: 'email1@gmail.com', admin: true, first_name: 'Jason', last_name: 'Brochu', age: 38, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
 u4 = User.create(username: 'daddyshark', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'Daddy', last_name: 'Shark', age: 4, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
 u5 = User.create(username: 'babyshark', password: '1234', email: 'email1@gmail.com', admin: false, first_name: 'Baby', last_name: 'Shark', age: 4, avatar: 'https://upload.wikimedia.org/wikipedia/commons/f/f3/CatSkiing.jpg', neighborhood: 'Denver')
 
