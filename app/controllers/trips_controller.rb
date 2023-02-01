@@ -2,7 +2,6 @@ class TripsController < ApplicationController
 
     before_action :set_trip, only: [:show, :update, :destroy]
 
-
     def index
         render json: Trip.all, status: :ok
     end
