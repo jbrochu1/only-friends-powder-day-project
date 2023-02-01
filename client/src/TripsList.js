@@ -18,11 +18,8 @@ export default function TripsList({
     );
   });
 
-  // console.log(trips)
-
   return (
     <div 
-      // className="rounded-xl p-8 space-y-4 shadow-2xl bg-cover"
       className=""
       >
       {tripCard}

@@ -13,7 +13,6 @@ export default function CommentList({
     fetch(`/comments/${commentId}`, {
       method: "DELETE",
     });
-    // onDeleteContent()
     window.location.reload();
   };
   return (

@@ -18,32 +18,6 @@ export default function Nav({ updateUser, currentUser }) {
 
   return (
     <div>
-      {/* <div className="navbar bg-primary text-primary-content">
-        <div className="navbar-start">
-          <button
-            className="btn btn-ghost normal-case text-xl"
-            onClick={handleLogOut}
-          >
-            Log Out
-          </button>
-          <button className="btn btn-ghost normal-case text-xl">
-            <Link to="/">Home</Link>
-          </button>
-          <button className="btn btn-ghost normal-case text-xl">
-            <Link to="/trips/new">Add Trip</Link>
-          </button>
-        </div>
-        <div className="navbar-center text-4xl">
-          <div>Only Friends On A Powder Day!</div>
-        </div>
-        <div className="navbar-end">
-          <div>
-            Welcome <br></br>
-            {currentUser.username} !
-          </div>
-          <div></div>
-        </div>
-      </div> */}
       <div className="navbar bg-primary text-primary-content">
         <div className="navbar-start">
           <div className="dropdown">

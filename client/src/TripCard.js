@@ -44,9 +44,6 @@ export default function TripCard({ trip, currentUser, isVisible }) {
     window.location.reload();
   };
 
-  // console.log(creatorIdMatch)
-  // console.log(trip)
-
   return (
     <div className="card rounded-xl p-8 space-y-4 shadow-2xl bg-base-100 image-full">
       <figure>
@@ -116,29 +113,6 @@ export default function TripCard({ trip, currentUser, isVisible }) {
               </button>
             </Link>
           ) : null}
-          {/* MOVED JOIN AND EDIT BUTTON UP ON PAGE */}
-          {/* <button
-            onClick={handleJoin}
-            className="btn btn-primary"
-          >
-            Join Trip
-          </button> */}
-          {/* {currentUser.id === trip.user_id ? (
-            <Link to={`/trips/${trip.id}/edit`}>
-              <button className="btn btn-primary">
-                {" "}
-                Edit Trip
-              </button>
-            </Link>
-          ) : null} */}
-          {/* {currentUser.id === trip.user_id ? (
-            <button
-              onClick={handleDelete}
-              className="btn btn-accent"
-            >
-              Delete
-            </button>
-          ) : null} */}
           {errors
             ? errors.map((e) => (
                 <h2 style={{ color: "red" }}>{e.toUpperCase()}</h2>

@@ -33,9 +33,9 @@ export default function AddMountain({currentUser, addMtn}){
             ski_pass,
             blackout_dates,
         };
-    
-        // console.log(newUser);
-    
+        
+        //POST NEW MOUNTAIN
+        
         fetch("/mountains", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

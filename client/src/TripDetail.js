@@ -44,7 +44,6 @@ export default function TripDetail({ currentUser, setIsVisible }) {
   });
 
   const { id } = useParams();
-  // console.log(trip);
   useEffect(() => {
     fetch(`/trips/${id}`)
       .then((r) => r.json())

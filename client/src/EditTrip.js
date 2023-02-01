@@ -65,6 +65,7 @@ export default function EditTrip({ currentUser, mountains, setMountains }) {
       });
   }
 
+    // MAPS MOUNTAIN NAMES TO POPULATE OPTIONS FOR SELECT IN FORM
   const mtns = mountains.map((mtn) => {
     return (
       <option key={mtn.name} value={mtn.id}>

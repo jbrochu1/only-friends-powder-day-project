@@ -5,7 +5,6 @@ import Signup from "./Signup";
 function Login({ updateUser, error }) {
   const [formData, setFormData] = useState({
     username: "",
-    // email: '',
     password: "",
   });
   const [signupVisible, setSignupVisible] = useState(false);
@@ -20,7 +19,6 @@ function Login({ updateUser, error }) {
     e.preventDefault();
     const user = {
       username,
-      // email,
       password,
     };
     fetch("/login", {
@@ -30,7 +28,6 @@ function Login({ updateUser, error }) {
       },
       body: JSON.stringify(user),
     })
-      // .then(console.log(user))
       .then((res) => {
         if (res.ok) {
           res.json().then((user) => {

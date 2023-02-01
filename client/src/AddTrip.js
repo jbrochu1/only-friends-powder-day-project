@@ -20,17 +20,12 @@ export default function AddTrip({ currentUser, mountains, setMountains }) {
   });
 }, []);
   
-  // SETS FORMDATA FOR INPUT ELEMENTS BELOW
   const handleChange = (e) => {
-    // e.preventDefault()
     const { name, value } = e.target;
-    // setTripData({ ...tripData, [name]: value })
-    // setTripStart({...tripStart, [name]: value })
-    // setTripEnd({...tripEnd, [name]: value })
     setMtnId({ ...mtnId, [name]: value });
   };
 
-  // PERSISTS NEW TRIP TO DATABASE & REFRESHES PAGE
+  
   function onSubmit() {
     fetch("/trips", {
       method: "POST",
@@ -47,7 +42,6 @@ export default function AddTrip({ currentUser, mountains, setMountains }) {
         if (res.ok) {
           res.json();
         } else {
-          //Display errors
           res
             .json()
             .then((data) =>
@@ -58,7 +52,7 @@ export default function AddTrip({ currentUser, mountains, setMountains }) {
         }
       });
   }
-  
+  // MAPS MOUNTAIN NAMES TO POPULATE OPTIONS FOR SELECT IN FORM
   const mtns = mountains.map((mtn) => {
     return (
       <option key={mtn.name} value={mtn.id}>

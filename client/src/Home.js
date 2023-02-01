@@ -51,8 +51,6 @@ export default function Home({ currentUser, setIsVisible, isVisible }) {
     });
   }, []);
 
-  // console.log(trips)
-
   return (
     <>
       <TripsList

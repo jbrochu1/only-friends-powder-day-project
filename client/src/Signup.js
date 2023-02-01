@@ -67,7 +67,6 @@ export default function Signup({ updateUser }) {
     });
   }
 
-  // console.log(formData)
   return (
     <>
       <div>
