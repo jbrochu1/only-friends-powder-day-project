@@ -2,10 +2,10 @@
 
 # Only Friends on a Powder Day
 Ski trip planning app where users create, edit and join trips, contribute comments and access resort/pass information
-<a href="https://www.loom.com/share/e787280116a24d7cac31abf2fa212162">
-    <p>Demo Video</p>
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e787280116a24d7cac31abf2fa212162-with-play.gif" alt="demo video">
-  </a>
+
+### Demo Video
+[![demo video](https://cdn.loom.com/sessions/thumbnails/e787280116a24d7cac31abf2fa212162-with-play.gif)](https://www.loom.com/share/e787280116a24d7cac31abf2fa212162)
+    
 # Getting Started
 Coming soon
 # Features
