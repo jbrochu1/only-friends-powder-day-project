@@ -71,7 +71,7 @@ export default function Signup({ updateUser }) {
     <>
       <div>
         <div>
-          <p className="text-2xl p-3">New User Sign Up</p>
+          <p className="text-2xl p-3">Create New Account</p>
         </div>
         <div className="p-2 max-w-lg">
           <form onSubmit={onSubmit}>
@@ -159,7 +159,7 @@ export default function Signup({ updateUser }) {
               <div className="p-2">
                 <input
                   type="submit"
-                  value="Sign Up"
+                  value="Submit"
                   className="btn btn-primary"
                 />
               </div>

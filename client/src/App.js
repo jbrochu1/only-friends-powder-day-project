@@ -124,7 +124,7 @@ function App() {
           </>
         ) : (
           <>
-            {<Login error={"please login or signup"} updateUser={updateUser} />}
+            {<Login error={"Please Login or Create a New Account"} updateUser={updateUser} />}
           </>
         )}
       </Router>
