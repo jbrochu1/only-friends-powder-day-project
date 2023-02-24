@@ -64,7 +64,7 @@ function Login({ updateUser, error }) {
               Only Friends on Powder Day!
             </h1>
             <p className="mb-5">
-              Unlike the phrase "No friends on a powder day", we encourage you to do the opposite! No friends left behind on a powder day (sunny days too!). Login or create an account to see how to join the fun!
+              Heard the phrase "No friends on a powder day"? We encourage you to do the opposite! No friends left behind on a powder day (sunny days too!). Login or create an account to see how to join the fun!
             </p>
             <div className="p-2 max-w-lg">
               <form onSubmit={onSubmit}>
@@ -91,7 +91,7 @@ function Login({ updateUser, error }) {
                 <div className="p-2 space-x-2">
                   <input
                     type="submit"
-                    value="Log In"
+                    value="Login"
                     className="btn btn-primary"
                   />
                 </div>
@@ -105,7 +105,7 @@ function Login({ updateUser, error }) {
               </div>
               <div>
                 <button onClick={handleClick} className="btn btn-primary">
-                  Create Account
+                  + Create Account
                 </button>
               </div>
             </div>
