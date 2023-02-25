@@ -3,7 +3,7 @@ class TripsController < ApplicationController
     before_action :set_trip, only: [:show, :update, :destroy]
 
     def index
-        render json: Trip.all, status: :ok
+        render json: Trip.all.order(trip_start: :asc), status: :ok
     end
     
     def show
