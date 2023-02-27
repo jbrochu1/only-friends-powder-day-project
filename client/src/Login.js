@@ -112,6 +112,10 @@ function Login({ updateUser, error }) {
             <div>
               {signupVisible ? <Signup updateUser={updateUser} /> : null}
             </div>
+            <a href="https://www.loom.com/share/e787280116a24d7cac31abf2fa212162">
+              <p>Only Friends-Powder Day - Features Preview - Watch Video</p>
+              <img src="https://cdn.loom.com/sessions/thumbnails/e787280116a24d7cac31abf2fa212162-1675280406086-with-play.gif"/>
+            </a>
           </div>
         </div>
       </div>
